@@ -1,0 +1,22 @@
+{
+  "name": "my-wp-theme",
+  "private": true,
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.14",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/vite": "^4.1.14",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.93.2",
+    "tailwindcss": "^4.1.14",
+    "vite": "^5.4.20",
+    "vite-plugin-full-reload": "^1.2.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch"
+  }
+}

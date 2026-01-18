@@ -1,0 +1,164 @@
+// 先頭でモジュールを読み込む
+
+// mixins.scss（既存のものと置き換えて使ってください）
+@use 'sass:math';
+@use 'sass:meta';
+
+$root-font-size: 16px !default;
+
+/* normalize value to px (accepts unitless -> px, px, rem) */
+@function _to-px($v, $root: $root-font-size) {
+  @if meta.type-of($v) != 'number' {
+    @error "_to-px: expected number (px/rem/number), got #{meta.type-of($v)}";
+  }
+  $u: math.unit($v);
+  @if $u == '' {
+    @return $v * 1px;
+  }
+  @if $u == 'px' {
+    @return $v;
+  }
+  @if $u == 'rem' {
+    // convert rem -> px using root
+    @if meta.type-of($root) == 'number' and math.unit($root) == '' {
+      $root: $root * 1px;
+    }
+    @return math.div($v * 1px, 1) * math.div($root, 1);
+  }
+  @error "_to-px: unsupported unit '#{$u}'. Use px/rem/unitless.";
+}
+
+/* helper: make a CSS token for min/max.
+   - if unitless number passed -> append px
+   - else keep given unit (px/rem/etc)
+*/
+@function _value-to-css($v) {
+  @if meta.type-of($v) != 'number' {
+    @error "_value-to-css: expected number, got #{meta.type-of($v)}";
+  }
+
+  $u: math.unit($v);
+  @if $u == '' {
+    // unitless -> treat as px
+    @return unquote('#{ $v }px');
+  }
+  // already has unit -> use interpolation to keep that unit
+  @return unquote('#{ $v }');
+}
+
+/* main function:
+   font-clamp-minscale(minFont, scale, vwLimit, maxFont)
+   - minFont, scale, vwLimit, maxFont accept px/rem/unitless numbers
+   - returns unquoted CSS: clamp(..., calc(...), ...)
+*/
+@function font-clamp(
+  $minFont,
+  $scale,
+  $vwLimit,
+  $maxFont,
+  $root: $root-font-size
+) {
+  // normalize to px for numeric extraction
+  $minCss: _value-to-css($minFont);
+  $maxCss: _value-to-css($maxFont);
+
+  $scalePx: _to-px($scale, $root); // e.g. 16px
+  $vwLimitPx: _to-px($vwLimit, $root); // e.g. 1200px
+
+  // extract unitless numbers for calc: 16 and 1200
+  $scaleNum: math.div($scalePx, 1px); // unitless 16
+  $vwLimitNum: math.div($vwLimitPx, 1px); // unitless 1200
+
+  // build calc(...) as string to preserve literal "calc" and parentheses
+  $calcStr: unquote('calc(#{$scaleNum} * (100vw / #{$vwLimitNum}))');
+
+  // build clamp(...) and return as unquoted CSS
+  $clampStr: unquote('clamp(#{$minCss}, #{$calcStr}, #{$maxCss})');
+  @return $clampStr;
+}
+
+/* mixin for convenience */
+@mixin fluid-font(
+  $minFont,
+  $scale,
+  $vwLimit,
+  $maxFont,
+  $root: $root-font-size
+) {
+  font-size: font-clamp($minFont, $scale, $vwLimit, $maxFont, $root);
+}
+
+/// px -> rem
+@function rem($px, $base: $root-font-size) {
+  // base を数値(px)に正規化（unitless -> px）
+  @if meta.type-of($base) == 'number' and math.unit($base) == '' {
+    $base: $base * 1px;
+  } @else if meta.type-of($base) != 'number' {
+    @error "rem(): base must be a number (e.g. 16 or 16px). got #{meta.type-of($base)}";
+  }
+
+  // $px の型チェック & unitless -> px に変換
+  @if meta.type-of($px) != 'number' {
+    @error "rem(): first argument must be a number (e.g. 16 or 16px). got #{meta.type-of($px)}";
+  }
+  @if math.unit($px) == '' {
+    $px: $px * 1px;
+  }
+
+  // math.div を使って除算（/ 演算子は非推奨）
+  $ratio: math.div($px, $base); // 無単位の数値になる
+  @return $ratio * 1rem;
+}
+
+/// shorthand: accepts multiple values like rems(8px 16px)
+@function rems($values, $base: $root-font-size) {
+  @if meta.type-of($values) != 'list' {
+    @return rem($values, $base);
+  }
+
+  $out: ();
+  @each $v in $values {
+    $out: append($out, rem($v, $base), 'space');
+  }
+
+  @return $out;
+}
+//rootでそれぞれ定義 tailwind側からも参照可能
+:root {
+  --color-main: #0b5fff;
+  --color-sub: red;
+  --color-accent: #ff4081;
+  --color-black: #000000;
+
+  --font-size-title: font-clamp(20, 24, 1200, 30);
+  --font-size-subtitle: font-clamp(18, 22, 1200, 28);
+  --font-size-desc: font-clamp(16, 20, 1200, 24);
+
+  --spacing-1: #{rem(4px)};
+  --spacing-2: #{rem(8px)};
+  --spacing-3: #{rem(12px)};
+  --spacing-4: #{rem(16px)};
+  --spacing-5: #{rem(20px)};
+  --spacing-6: #{rem(24px)};
+  --spacing-8: #{rem(32px)};
+  --spacing-10: #{rem(40px)};
+  --spacing-12: #{rem(48px)};
+  --spacing-16: #{rem(64px)};
+  --spacing-20: #{rem(80px)};
+  --spacing-24: #{rem(96px)};
+  --spacing-32: #{rem(128px)};
+
+  --font-size-sm: #{rem(14px)};
+  --font-size-base: #{rem(16px)};
+  --font-size-lg: #{rem(18px)};
+  --font-size-xl: #{rem(20px)};
+  --font-size-2xl: #{rem(24px)};
+  --font-size-3xl: #{rem(30px)};
+  --font-size-4xl: #{rem(36px)};
+  --font-size-5xl: #{rem(48px)};
+
+  --font-en: 'Chakra Petch', sans-serif;
+  --font-serif: 'Zen Old Mincho', serif;
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --default-font-family: 'Zen Old Mincho', serif;
+}
