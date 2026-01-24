@@ -4,15 +4,14 @@ import path from 'path';
 import FullReload from 'vite-plugin-full-reload';
 
 //autoprefixer is included in tailwindcss/vite plugin
-import autoprefixer from 'autoprefixer';
+const rootPath = path.resolve(__dirname, 'src');
 
 export default defineConfig(({ command }) => {
   const isDev = command === 'serve';
-  const rootPath = path.resolve(__dirname, 'src');
 
   return {
     root: rootPath,
-    base: isDev ? '/' : '/', //今回はwordpressなのでproductionもルートパス
+    base: isDev ? '/' : './', //今回はwordpressなのでproductionもルートパス
     resolve: {
       alias: {
         // src を @ で参照できるようにする（SCSS @use に便利）
@@ -50,15 +49,21 @@ export default defineConfig(({ command }) => {
     build: {
       outDir: path.resolve(__dirname, 'dist'),
       emptyOutDir: true,
-      manifest: true, // WordPress 側で参照する manifest.json を出す
+      manifest: true,
       rollupOptions: {
+        // 明示的に JS entry を指定（絶対パス推奨）
         input: {
-          main: path.resolve(rootPath, 'main.js'),
+          main: path.resolve(__dirname, 'src', 'main.js'),
+        },
+        output: {
+          // asset/js 出力を調整したければここで設定
+          assetFileNames: '[name]-[hash][extname]',
+          entryFileNames: 'assets/[name]-[hash].js',
+          chunkFileNames: 'assets/[name]-[hash].js',
         },
       },
     },
     plugins: [
-      autoprefixer(),
       isDev &&
         FullReload([
           // WordPress ドキュメントルートを監視

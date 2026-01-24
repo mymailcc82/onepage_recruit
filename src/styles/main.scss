@@ -1,4 +1,7 @@
-@use './tokens' as *;
 @use './reset';
 @use './common';
 @use './header';
+@use './top';
+
+@use './company';
+@use './job';

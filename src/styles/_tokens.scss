@@ -123,11 +123,28 @@ $root-font-size: 16px !default;
 
   @return $out;
 }
+
+$breakpoints: (
+  'sm': 'screen and (min-width: 601px)',
+  'middle': 'screen and (max-width: 1024px)',
+  'mobile': 'screen and (max-width: 600px)',
+  'md': 'screen and (min-width: 1025px)',
+  'lg': 'screen and (max-width: 1200px)',
+  'llg': 'screen and (max-width: 1400px)',
+  'xl': 'screen and (min-width: 1200px)',
+) !default;
+
+@mixin media($breakpoint: md) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
 //rootでそれぞれ定義 tailwind側からも参照可能
 :root {
-  --color-main: #0b5fff;
-  --color-sub: red;
-  --color-accent: #ff4081;
+  --color-main: #57C3D1;
+  --color-sub: #173CA0;
+  --color-accent: #ffffff;
   --color-black: #000000;
 
   --font-size-title: font-clamp(20, 24, 1200, 30);
@@ -157,7 +174,7 @@ $root-font-size: 16px !default;
   --font-size-4xl: #{rem(36px)};
   --font-size-5xl: #{rem(48px)};
 
-  --font-en: 'Chakra Petch', sans-serif;
+  --font-en: 'Roboto', sans-serif;
   --font-serif: 'Zen Old Mincho', serif;
   --font-sans: 'Noto Sans JP', sans-serif;
   --default-font-family: 'Zen Old Mincho', serif;

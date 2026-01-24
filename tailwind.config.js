@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{scss,js,ts,jsx,tsx,css}', './*.php'],
   theme: {
     extend: {
+      screens: {
+        sm: '600px', // ← ここを追加（デフォルトの640pxを上書き）
+      },
       colors: {
         primary: '#0b5fff',
       },

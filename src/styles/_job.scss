@@ -1,0 +1,304 @@
+@use './tokens' as *;
+
+
+/*仕事紹介*/
+.job {
+  .sec01 {
+    padding: 36px 0 178px;
+
+    .sec01-txt {
+      h4 {
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: .1em;
+        margin-bottom: 18px;
+      }
+
+      p {
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: .1em;
+        line-height: 1.94;
+      }
+    }
+
+    .sec01-list {
+      margin-top: 109px;
+
+      .sec01-list-wrap {
+        margin-bottom: 182px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .sec01-list-wrap-img {
+          width: 590px;
+          height: 440px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+        }
+
+        .sec01-list-wrap-txt {
+          width: calc(100% - 590px);
+          display: flex;
+          flex-wrap: wrap;
+          align-content: space-between;
+
+          .sec01-list-wrap-txt-col {
+            h2 {
+              font-size: 30px;
+              letter-spacing: .1em;
+              font-weight: bold;
+              margin-bottom: 15px;
+            }
+
+            p {
+              font-size: 15px;
+              font-weight: 500;
+              letter-spacing: .1em;
+              line-height: 2;
+            }
+          }
+        }
+      }
+
+      .sec01-list-wrap-right {
+        .sec01-list-wrap-txt {
+          padding-left: 2vw;
+        }
+      }
+
+      .sec01-list-wrap-left {
+        flex-direction: row-reverse;
+
+        .sec01-list-wrap-txt {
+          padding-right: 2vw;
+        }
+      }
+    }
+  }
+}
+
+/*仕事紹介詳細*/
+
+.job-details {
+  .sec01 {
+    padding: 52px 0 171px;
+
+    .sec01-wrap {
+      margin-bottom: 75px;
+
+      p {
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: .1em;
+        line-height: 1.5;
+        margin-bottom: 25px;
+      }
+
+      .sec01-wrap-img {
+        width: 100%;
+        height: 487px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .sec01-col {
+      flex-direction: row-reverse;
+
+      .sec01-col-right {
+        width: 47%;
+        position: relative;
+        padding-top: 30px;
+
+        .sec01-col-right-img {
+          position: sticky;
+          top: 0px;
+          width: 100%;
+          height: 340px;
+
+          &::before {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-main);
+            z-index: 4;
+            border-radius: 10px;
+            transform: rotate(-5deg);
+          }
+
+          img {
+            position: relative;
+            z-index: 5;
+            border-radius: 21px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      .sec01-col-left {
+        width: 53%;
+        padding-right: 70px;
+
+        .sec01-col-left-txt {
+          width: 100%;
+          margin-bottom: 75px;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+
+          h2 {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: .1em;
+            padding-bottom: 10px;
+            border-bottom: solid 3px #000000;
+            margin-bottom: 25px;
+          }
+
+          p {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: .1em;
+            line-height: 2;
+          }
+        }
+      }
+    }
+  }
+
+  .sec02 {
+    .sec02-interview {
+      .sec02-interview-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 33px 30px 30px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin-bottom: 119px;
+        box-shadow: 0 3px 6px #00000016;
+
+        &::before{
+          position: absolute;
+          display: block;
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: var(--color-main);
+          top: 0;
+          left: 0;
+          transform: rotate(-5deg);
+          z-index: -1;
+          border-radius: 10px;
+        }
+
+        .hukidashi {
+          position: absolute;
+          top: -45px;
+          left: -60px;
+
+          .hukidashi-txt {
+            position: relative;
+            background-color: var(--color-sub);
+            display: block;
+            width: 207px;
+            height: 64px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            letter-spacing: .1em;
+            font-weight: bold;
+            color: var(--color-accent);
+            transform: rotate(-10deg);
+
+            &::before {
+              display: block;
+              content: "";
+              position: absolute;
+              background-color: var(--color-sub);
+              width: 30px;
+              height: 18px;
+              -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+              clip-path: polygon(50% 0, 0 100%, 100% 100%);
+              bottom: -7px;
+              left: 50px;
+              transform: rotate(-100deg);
+            }
+          }
+        }
+
+        .sec02-interview-wrap-txt-pc {
+          width: calc(100% - 223px);
+          padding-right: 40px;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: space-between;
+
+          .sec02-interview-wrap-txt-pc-flex {
+            h3 {
+              font-size: 20px;
+              font-weight: bold;
+              letter-spacing: .1em;
+              margin-bottom: 10px;
+            }
+
+            p {
+              font-size: 15px;
+              font-weight: 400;
+              letter-spacing: .1em;
+              line-height: 1.6;
+            }
+          }
+
+          h4 {
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: .1em;
+            line-height: 1.6;
+          }
+
+        }
+
+        .sec02-interview-wrap-img {
+          width: 223px;
+          height: 252px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+        }
+      }
+
+      .sec02-interview-btn{
+        justify-content: space-between;
+        .com-btn-main{
+          width: 49%;
+          max-width: 399px;
+        }
+      }      
+    }
+  }
+}
