@@ -1,10 +1,30 @@
 @use './tokens' as *;
 .header {
-  .header-wrap-list {
-    ul {
-      display: flex;
-      li {
-        a {
+  .header-wrap {
+    justify-content: space-between;
+    align-items: center;
+    .header-wrap-logo {
+      p {
+        color: var(--color-main);
+      }
+    }
+    .header-wrap-list {
+      ul {
+        display: flex;
+        gap: 20px;
+        @include media(mobile) {
+          display: none;
+        }
+
+        li {
+          a {
+            color: var(--color-main);
+            font-weight: bold;
+          }
+        }
+      }
+      ol {
+        li {
         }
       }
     }

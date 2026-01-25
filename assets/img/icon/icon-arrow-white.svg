@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.568" height="16.567" viewBox="0 0 16.568 16.567">
+  <g id="Icon_feather-arrow-right" data-name="Icon feather-arrow-right" transform="translate(1 1)">
+    <path id="パス_1605" data-name="パス 1605" d="M22.068,19H7.5a1,1,0,0,1,0-2H22.068a1,1,0,1,1,0,2Z" transform="translate(-7.5 -10.716)" fill="#fff"/>
+    <path id="パス_1606" data-name="パス 1606" d="M18,23.068a1,1,0,0,1-.707-1.707l6.577-6.577L17.293,8.207a1,1,0,0,1,1.414-1.414l7.284,7.284a1,1,0,0,1,0,1.414l-7.284,7.284A1,1,0,0,1,18,23.068Z" transform="translate(-10.716 -7.5)" fill="#fff"/>
+  </g>
+</svg>

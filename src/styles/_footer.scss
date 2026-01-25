@@ -1,0 +1,63 @@
+@use './tokens' as *;
+
+.footer {
+  padding: 50px 0px 0px;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#efefef 1px, transparent 1px),
+    linear-gradient(90deg, #efefef 1px, transparent 1px);
+  background-size: 24px 24px;
+
+  .footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    .footer-wrap-left {
+      width: 40%;
+      ul {
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+    }
+    .footer-wrap-right {
+      max-width: 500px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: auto;
+      ul {
+        width: 48%;
+        li {
+          margin-bottom: 25px;
+          a {
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+          }
+        }
+      }
+      ol {
+        width: 100%;
+        display: flex;
+        li {
+          &:after {
+            content: '/';
+            color: #969696;
+            margin: 0px 5px;
+          }
+          &:last-child {
+            &:after {
+              content: '';
+            }
+          }
+          a {
+            font-size: 14px;
+            color: #969696;
+          }
+        }
+      }
+    }
+  }
+}
