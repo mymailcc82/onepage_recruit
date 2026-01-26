@@ -13,17 +13,22 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
+
 
     <?php wp_head(); ?>
 </head>
 
 <header class="header bg-white fixed w-full top-0 left-0 z-50">
-    <div class="header-wrap flex w-[90%] mx-auto py-4">
+    <div class="header-wrap flex w-[90%] md:w-[95%] mx-auto py-4">
         <div class="header-wrap-logo flex items-center">
-            <a href="<?php echo home_url(); ?>" class="block w-[170px]">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/com/logo.png" alt="和幸">
+            <a href="<?php echo home_url(); ?>" class="block w-[134px] md:w-[170px]">
+                <picture>
+                    <source media="(max-width: 640px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/com/logo-white.png">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/com/logo.png" alt="">
+                </picture>
             </a>
-            <p class="ml-4 text-base font-bold">
+            <p class="ml-4 text-base sm:font-bold">
                 -新卒採用 2026-
             </p>
         </div>
@@ -33,11 +38,11 @@
             <ul class="flex">
                 <li><a href="<?php echo home_url(); ?>/about/">どんな会社？</a></li>
                 <li><a href="<?php echo home_url(); ?>/about/">仕事紹介</a></li>
-                <li class="mr-4"><a href="<?php echo home_url(); ?>/about/">先輩インタビュー</a></li>
+                <li><a href="<?php echo home_url(); ?>/about/">先輩インタビュー</a></li>
                 <li><a href="<?php echo home_url(); ?>/about/">お知らせ・ブログ</a></li>
                 <li><a href="<?php echo home_url(); ?>/about/">保護者の方へ</a></li>
             </ul>
-            <ol class="flex ml-4">
+            <ol class="flex ml-4 hidden-middle">
                 <li class="mr-2">
                     <a class="bg-main text-white px-10 py-2 rounded font-bold text-xl" href="">INTERN</a>
                 </li>
@@ -45,11 +50,36 @@
                     <a class="bg-sub text-white px-10 py-2 rounded font-bold text-xl" href="">ENTRY</a>
                 </li>
             </ol>
-
+            <button class="header-button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </div>
-
-
 </header>
+
+<div class="drawer">
+    <div class="drawer-wrap">
+        <div class="content-width">
+            <ol class="flex justify-center mb-8">
+                <li class="">
+                    <a class="color-main bg-white px-10 py-2 rounded font-bold text-xl" href="">INTERN</a>
+                </li>
+                <li>
+                    <a class="bg-sub text-white px-10 py-2 rounded font-bold text-xl" href="">ENTRY</a>
+                </li>
+            </ol>
+            <ul class="">
+                <li><a href="<?php echo home_url(); ?>/about/">どんな会社？</a></li>
+                <li><a href="<?php echo home_url(); ?>/about/">仕事紹介</a></li>
+                <li><a href="<?php echo home_url(); ?>/about/">先輩インタビュー</a></li>
+                <li><a href="<?php echo home_url(); ?>/about/">お知らせ・ブログ</a></li>
+                <li><a href="<?php echo home_url(); ?>/about/">保護者の方へ</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
 
 <body <?php body_class(); ?>>

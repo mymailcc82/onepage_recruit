@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       screens: {
         sm: '600px', // ← ここを追加（デフォルトの640pxを上書き）
+        md: '1024px',
       },
       colors: {
         primary: '#0b5fff',

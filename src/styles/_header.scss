@@ -1,18 +1,28 @@
 @use './tokens' as *;
 .header {
+  @include media(mobile) {
+    background-color: var(--color-main);
+  }
+
   .header-wrap {
     justify-content: space-between;
     align-items: center;
     .header-wrap-logo {
       p {
         color: var(--color-main);
+        @include media(middle) {
+          font-size: 14px;
+        }
+        @include media(mobile) {
+          color: #fff;
+        }
       }
     }
     .header-wrap-list {
       ul {
         display: flex;
         gap: 20px;
-        @include media(mobile) {
+        @include media(middle) {
           display: none;
         }
 
@@ -23,8 +33,111 @@
           }
         }
       }
-      ol {
-        li {
+    }
+  }
+  .header-button {
+    width: 44px;
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    display: none;
+    @include media(middle) {
+      display: flex;
+    }
+    &.active {
+      span {
+        &:nth-child(1) {
+          top: 50%;
+          transform: translateY(-50%) rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          bottom: 50%;
+          transform: translateY(50%) rotate(-45deg);
+        }
+      }
+    }
+    span {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-main);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      left: 0px;
+      margin-left: 20px;
+      @include media(mobile) {
+        background-color: #fff;
+        margin-left: 0px;
+      }
+
+      &:nth-child(1) {
+        top: 0px;
+      }
+      &:nth-child(2) {
+        bottom: 50%;
+        transform: translateY(50%);
+      }
+      &:nth-child(3) {
+        bottom: 0px;
+      }
+    }
+  }
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+  z-index: 49;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transform: translateY(-100%);
+  &.drawer-active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+  overflow: scroll;
+  //スクロールバー非表示
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .drawer-wrap {
+    padding-top: 100px;
+
+    ol {
+      gap: 4%;
+
+      li {
+        width: 48%;
+        a {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+    ul {
+      li {
+        border-bottom: 1px solid #707070;
+        a {
+          display: block;
+          padding: 15px 0px;
+          font-size: 18px;
+          font-weight: bold;
+          color: var(--color-main);
         }
       }
     }

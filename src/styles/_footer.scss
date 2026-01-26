@@ -11,9 +11,17 @@
   .footer-wrap {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-bottom: 60px;
+    @include media(middle) {
+      margin-bottom: 40px;
+    }
     .footer-wrap-left {
       width: 40%;
+      @include media(mobile) {
+        width: 100%;
+        margin-bottom: 30px;
+      }
       ul {
         margin-top: 20px;
         display: flex;
@@ -27,6 +35,14 @@
       justify-content: space-between;
       flex-wrap: wrap;
       width: auto;
+      @include media(middle) {
+        max-width: 400px;
+        padding-left: 20px;
+      }
+      @include media(mobile) {
+        width: 100%;
+        padding-left: 0px;
+      }
       ul {
         width: 48%;
         li {
@@ -41,6 +57,9 @@
       ol {
         width: 100%;
         display: flex;
+        @include media(mobile) {
+          justify-content: center;
+        }
         li {
           &:after {
             content: '/';
@@ -55,6 +74,9 @@
           a {
             font-size: 14px;
             color: #969696;
+            @include media(middle) {
+              font-size: 12px;
+            }
           }
         }
       }

@@ -2,5 +2,14 @@
 import './styles/base.css';
 import './styles/main.scss';
 
-// 例: ページ用の JS
-console.log('hello vite + sass');
+//.header-buttonクリックでナビ開閉
+const headerButton = document.querySelector('.header-button');
+const headerNav = document.querySelector('nav');
+
+headerButton.addEventListener('click', () => {
+  headerButton.classList.toggle('active');
+  headerNav.classList.toggle('open');
+  //.drawerに.drawer-activeを付与
+  const drawer = document.querySelector('.drawer');
+  drawer.classList.toggle('drawer-active');
+});

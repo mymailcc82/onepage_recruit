@@ -30,14 +30,14 @@
                 </ul>
             </div>
             <div class="footer-wrap-right">
-                <ul>
+                <ul class="hidden-mobile">
                     <li><a href="">トップ</a></li>
                     <li><a href="">どんな会社？</a></li>
                     <li><a href="">仕事紹介</a></li>
                     <li><a href="">先輩インタビュー</a></li>
                     <li><a href="">保護者の方へ</a></li>
                 </ul>
-                <ul>
+                <ul class="hidden-mobile">
                     <li><a href="">お知らせ・ブログ</a></li>
                     <li><a href="">インターン情報</a></li>
                     <li><a href="">募集要項</a></li>
@@ -58,7 +58,7 @@
             </div>
         </div>
     </div>
-    <p class="bg-main text-center text-white text-sm py-4 mt-8 mb-0">
+    <p class="bg-main text-center text-white text-xs sm:text-sm py-2 sm:py-4 mt-8 mb-0">
         © Onepage,Inc All Rights Reserved.
     </p>
 
@@ -72,7 +72,133 @@
 <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
 
 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const textarea = document.querySelector('textarea[name="others_message"]');
+        const counter = document.getElementById("text_count");
+        const maxLength = 1000;
+
+        function updateCount() {
+            const currentLength = textarea.value.length;
+            const remaining = maxLength - currentLength;
+            counter.textContent = remaining;
+        }
+
+        // 初期表示用
+        updateCount();
+
+        // 入力があるたびに更新
+        textarea.addEventListener("input", updateCount);
+    });
+</script>
+<script>
+    $(document).on('change', '.upload-1', function() {
+        var file = $(this).prop('files')[0];
+        var $box = $(this).closest('.upload-box');
+
+        if (file) {
+            // ファイル名表示
+            $box.find('.js-upload-filename-1').text(file.name);
+
+            // 画像プレビュー
+            if (file.type.startsWith('image/')) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+                    $('#image_preview').html(
+                        `<img src="${e.target.result}" style="max-width:200px;">`
+                    );
+                    $('input[name="image_preview_url"]').val(e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        } else {
+            // ファイル未選択時
+            $box.find('.js-upload-filename-1').text('選択されていません');
+            $box.find('.preview').empty(); // プレビューも消す
+        }
+    });
+    <?php if (is_page("confirm")): ?>
+        //name=image_preview_urlにあるなら、$('#image_preview').html(`<img src="${e.target.result}" style="max-width:200px;">`);
+        $(document).ready(function() {
+            var previewUrl = $('input[name="image_preview_url"]').val();
+            if (previewUrl) {
+                $('#image_preview').html(`<img src="${previewUrl}" style="max-width:200px;">`);
+            } else {
+                //$('#image_preview').html('画像が選択されていません');
+            }
+        });
+
+    <?php endif; ?>
+</script>
+<script>
+    //エントリーで誕生日自動付与
+    const input = document.getElementById('dateInput');
+    //typeをtextから数字に変更
+    input.type = 'tel';
+</script>
+<script>
+    $(document).ready(function() {
+        var val = $('.mw-wp-form_file input[name="upload_01"]').val();
+        if (val) {
+            //valの最初のupload-を削除
+            //val = val.replace(/upload-/, '');
+            $(".js-upload-filename-1").text(val);
+            //$(".preview").css("display", "block");
+
+        } else {
+            $(".js-upload-filename-1").text('選択されていません');
+        }
+    });
+    $(document).on('change', '.upload-1', function() {
+        var file = $(this).prop('files')[0];
+        if (file) {
+            $(this).closest('.upload-box').find('.js-upload-filename-1').text(file.name);
+            //$(".preview").css("display", "block");
+        } else {
+            $(this).closest('.upload-box').find('.js-upload-filename-1').text('選択されていません');
+        }
+    });
+
+    //.mwform-checkbox-fieldの.mwform-checkbox-field-textに<a href="/privacy" target="_blank" class="contact_inner_form-link">個人情報保護方針</a>に同意する'を追加
+    $(document).ready(function() {
+        // .mwform-checkbox-field の中の .mwform-checkbox-field-text を探す
+        $('.mwform-checkbox-field .mwform-checkbox-field-text').html(
+            '<a href="/privacy" target="_blank" class="contact_inner_form-link">個人情報保護方針</a>に同意する'
+        );
+    });
+</script>
+<script>
+    if (document.getElementById('datepicker')) {
+        const picker = new easepick.create({
+            element: document.getElementById('datepicker'),
+            lang: 'ja-JP',
+            css: [
+                'https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.css',
+            ],
+            setup(calendar) {
+                calendar.on('view', () => {
+                    // Processing when calendar is displayed.
+                })
+
+                calendar.on('click', () => {
+                    // Processing when clicked.
+                })
+
+                calendar.on('select', (event) => {
+                    // Processing when selected.
+                    const selectedDate = event.detail.date.format('YYYY-MM-DD');
+                    //const selectedDate = calendar.date.format('YYYY-MM-DD');
+                    // .start-dateのvalueに選択された日付をセット
+                    document.querySelector('.start-date').value = selectedDate;
+
+                })
+            }
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
         const slideCount = document.querySelectorAll('.gallery-swiper .swiper-slide').length;
 

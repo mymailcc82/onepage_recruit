@@ -1,2 +1,10 @@
 
 @import 'tailwindcss';
+
+@theme {
+  /* rem 単位で定義（例: sm = 640px = 40rem, md = 768px = 48rem） */
+  --breakpoint-sm: 600px; /* 640px */
+  --breakpoint-md: 1024px; /* 768px */
+  /* 必要なら他も上書き */
+  --breakpoint-lg: 64rem; /* 1024px */
+}

@@ -1,5 +1,8 @@
 <?php
 //管理バー非表示
+//アイキャッチ設定
+add_theme_support('post-thumbnails');
+//管理バー非表示
 add_filter('show_admin_bar', '__return_false');
 
 // functions.php の適当な場所に追加
@@ -82,3 +85,61 @@ function theme_vite_enqueue_assets()
     }
 }
 add_action('wp_enqueue_scripts', 'theme_vite_enqueue_assets', 1);
+
+
+
+//採用情報のカスタム投稿タイプ追加
+
+//採用情報のカスタム投稿タイプ追加
+function create_recruit_post_type()
+{
+    $labels = array(
+        'name' => '採用情報',
+        'singular_name' => 'recruit',
+        'add_new' => '新規追加',
+        'add_new_item' => '新規採用情報を追加',
+        'edit_item' => '採用情報を編集',
+        'new_item' => '新規採用情報',
+        'view_item' => '採用情報を表示',
+        'search_items' => '採用情報を検索',
+        'not_found' => '採用情報が見つかりませんでした。',
+        'not_found_in_trash' => 'ゴミ箱に採用情報は見つかりませんでした。',
+        'all_items' => 'すべての採用情報',
+        'menu_name' => '採用情報',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'menu_position' => 5,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'rewrite' => array('slug' => 'recruit'),
+    );
+
+    register_post_type('recruit', $args);
+}
+add_action('init', 'create_recruit_post_type');
+
+
+
+//エントリーの募集職種にカスタム投稿のタイトルを追加
+add_filter('mwform_choices_mw-wp-form-29', function ($choices, $atts) {
+    // フォーム内の特定のname属性を確認
+    if ($atts['name'] === 'occupatation') {
+        // recruit投稿タイプの投稿を取得
+        $posts = get_posts([
+            'post_type' => 'recruit',
+            'posts_per_page' => -1, // すべての投稿を取得
+            'post_status' => 'publish', // 公開済みのみ
+            //recruit_categoryのタクソノミーを取得
+        ]);
+
+        // 投稿タイトルをchoicesに追加
+        $choices = [];
+        foreach ($posts as $post) {
+            $choices[] = $post->post_title;
+        }
+    }
+    return $choices;
+}, 10, 2);

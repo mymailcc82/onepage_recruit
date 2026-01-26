@@ -1,18 +1,48 @@
 <?php get_header(); ?>
 <main class="top">
 
-    <div class="top-visual fixed left-0 top-0 w-full h-screen z-0">
+    <div class="top-visual left-0 top-0 w-full h-screen z-0">
+        <div class="top-visual-yoko-top">
+            <ul>
+                <li>Graduate Recruitment Graduate Recruitment</li>
+                <li>Graduate Recruitment Graduate Recruitment</li>
+            </ul>
+        </div>
+        <div class="top-visual-yoko-bottom">
+            <ul>
+                <li>Graduate Recruitment Graduate Recruitment</li>
+                <li>Graduate Recruitment Graduate Recruitment</li>
+            </ul>
+        </div>
+
         <div class="top-visual-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-visual.jpg" alt="トップビジュアル">
+            <picture>
+                <source media="(max-width: 600px)" srcset="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-visual_sp_v2.jpg">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-visual_v2.jpg" alt="トップビジュアル">
+            </picture>
+        </div>
+        <div class="top-visual-txt">
+            <h1>
+                <span>あなたの</span><br>
+                <span>可能性が、</span><br>
+                <span>価値に変わる。</span>
+            </h1>
         </div>
     </div>
-    <section class="sec01 relative z-10">
+    <section class="sec01 relative">
+        <div class="sec01-bg-main"></div>
+        <div class="sec01-bg-sub"></div>
         <div class="content-width">
             <div class="sec01-content">
                 <div class="sec01-title mb-7">
                     <h2 class="bg-main text-white">最初の1ページを、ここから。</h2>
                 </div>
-                <p class="text-lg max-w-[650px]">
+                <div class="hidden-sm">
+                    <div class="sec01-img-mobile mb-5">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/sec01-img-01.jpg" alt="セクション画像01">
+                    </div>
+                </div>
+                <p class="text-sm md:text-lg max-w-[350px] md:max-w-[650px] ">
                     新しい環境に踏み出すときは、不安と期待が入り混じるもの。<br>
                     ワンページは、その一歩を安心して踏み出せる場所でありたいと考えています。<br><br>
 
@@ -51,7 +81,10 @@
                         <span class="text-white">ABOUT<br>COMPANY</span>
                         <h2 class="text-white">どんな会社？</h2>
                     </div>
-                    <h3>得意を尊重し、挑戦を応援することを大切にする会社です。</h3>
+                    <div class="hidden-sm sec02-wrap-right-img mb-4">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/sec02-img-01.jpg" alt="">
+                    </div>
+                    <h3 class="mb-2 sm:mb-0">得意を尊重し、挑戦を応援することを大切にする会社です。</h3>
                     <p class="mb-10">
                         ここでは会社の持つ価値観や福利厚生、代表メッセージなど、会社についてより深く分かる情報をお伝えします。
                     </p>
@@ -89,8 +122,13 @@
                 <span>INTERVIEW</span>
                 <h2 class="text-center color-sub text-xl mt-2 font-bold">人を知る</h2>
             </div>
-            <div class="sec04-wrap flex">
-                <div class="sec04-wrap-col">
+        </div>
+        <div class="swiper swiper-interview">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+            <div class="sec04-wrap swiper-wrapper">
+                <div class="sec04-wrap-col swiper-slide">
                     <i></i>
                     <div class="sec04-wrap-colp-img">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/sec04-img-02.jpg" alt="セクション画像01">
@@ -106,7 +144,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="sec04-wrap-col">
+                <div class="sec04-wrap-col swiper-slide">
                     <div class="sec04-wrap-colp-img">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/sec04-img-03.jpg" alt="セクション画像01">
                     </div>
@@ -121,7 +159,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="sec04-wrap-col">
+                <div class="sec04-wrap-col swiper-slide">
                     <i></i>
                     <div class="sec04-wrap-colp-img">
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/sec04-img-01.jpg" alt="セクション画像01">
@@ -142,11 +180,11 @@
     </section>
     <section class="sec05 relative z-10">
         <div class="content-width">
-            <div class="sec05-title mb-10">
+            <div class="sec05-title mb-4 sm:mb-10">
                 <span>NEWS / BLOG</span>
-                <h2 class="text-center color-sub text-xl mt-2 font-bold">お知らせ・ブログ</h2>
+                <h2 class="sm:text-center color-sub text-xl mt-2 font-bold">お知らせ・ブログ</h2>
             </div>
-            <h3 class="mb-4">大事なお知らせやイベント情報、スタッフブログなどを発信します！</h3>
+            <h3 class="mb-6 sm:mb-4">大事なお知らせやイベント情報、スタッフブログなどを発信します！</h3>
             <div class="sec05-wrap flex">
                 <div class="sec05-wrap-col">
                     <a href="">
@@ -191,47 +229,47 @@
                     </a>
                 </div>
             </div>
-            <div class="com-btn-sub mt-10 max-w-[400px] mx-auto">
+            <div class="com-btn-sub mt-2 sm:mt-10 max-w-[400px] mx-auto">
                 <a href="#">もっと見る<i></i></a>
             </div>
         </div>
     </section>
 
-    <aside class="aside-recruit relative z-10">
-        <div class="aside-bg">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/aside/aside-bg.jpg" alt="採用情報背景画像">
-        </div>
-        <div class="content-width">
-            <div class="aside-title mb-8">
-                <span>RECRUIT</span>
-                <h2 class="font-bold">採用情報</h2>
-            </div>
-            <div class="aside-wrap">
-                <div class="aside-wrap-col">
-                    <a href="">
-                        <span>INTERN</span>
-                        <h3>インターン情報</h3>
-                        <i></i>
-                    </a>
-                </div>
-                <div class="aside-wrap-col">
-                    <a href="">
-                        <span>FOR PARENTS <br>AND GUARDIANS</span>
-                        <h3>保護者の方へ</h3>
-                        <i></i>
-                    </a>
-                </div>
-                <div class="aside-wrap-col-full">
-                    <a href="">
-                        <span>ENTRY</span>
-                        <h3>募集要項 / エントリー</h3>
-                        <i></i>
-                    </a>
-                </div>
 
-            </div>
-        </div>
-    </aside>
-
+    <?php get_template_part('inc/inc-aside'); ?>
 </main>
+<script>
+    //swiper-interview実装
+    const swiperInterview = new Swiper('.swiper-interview', {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+</script>
 <?php get_footer(); ?>
