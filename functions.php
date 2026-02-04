@@ -143,3 +143,36 @@ add_filter('mwform_choices_mw-wp-form-29', function ($choices, $atts) {
     }
     return $choices;
 }, 10, 2);
+
+
+//インタビューのカスタム投稿タイプ追加
+function create_interview_post_type()
+{
+    $labels = array(
+        'name' => 'インタビュー',
+        'singular_name' => 'interview',
+        'add_new' => '新規追加',
+        'add_new_item' => 'インタビューを追加',
+        'edit_item' => 'インタビューを編集',
+        'new_item' => 'インタビュー情報',
+        'view_item' => 'インタビューを表示',
+        'search_items' => 'インタビューを検索',
+        'not_found' => 'インタビューが見つかりませんでした。',
+        'not_found_in_trash' => 'ゴミ箱にインタビューは見つかりませんでした。',
+        'all_items' => 'すべてのインタビュー',
+        'menu_name' => 'インタビュー',
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'has_archive' => true,
+        'menu_position' => 5,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'rewrite' => array('slug' => 'interview'),
+    );
+
+    register_post_type('interview', $args);
+}
+add_action('init', 'create_interview_post_type');
+

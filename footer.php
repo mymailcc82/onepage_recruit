@@ -31,11 +31,11 @@
             </div>
             <div class="footer-wrap-right">
                 <ul class="hidden-mobile">
-                    <li><a href="">トップ</a></li>
-                    <li><a href="">どんな会社？</a></li>
-                    <li><a href="">仕事紹介</a></li>
-                    <li><a href="">先輩インタビュー</a></li>
-                    <li><a href="">保護者の方へ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/">トップ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
+                    <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
+                    <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
+                    <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
                 </ul>
                 <ul class="hidden-mobile">
                     <li><a href="">お知らせ・ブログ</a></li>

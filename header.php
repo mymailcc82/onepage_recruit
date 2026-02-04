@@ -36,11 +36,11 @@
 
         <nav class="header-wrap-list flex">
             <ul class="flex">
-                <li><a href="<?php echo home_url(); ?>/about/">どんな会社？</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">仕事紹介</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">先輩インタビュー</a></li>
+                <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
+                <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
+                <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
                 <li><a href="<?php echo home_url(); ?>/about/">お知らせ・ブログ</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">保護者の方へ</a></li>
+                <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
             </ul>
             <ol class="flex ml-4 hidden-middle">
                 <li class="mr-2">
@@ -71,11 +71,11 @@
                 </li>
             </ol>
             <ul class="">
-                <li><a href="<?php echo home_url(); ?>/about/">どんな会社？</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">仕事紹介</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">先輩インタビュー</a></li>
+                <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
+                <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
+                <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
                 <li><a href="<?php echo home_url(); ?>/about/">お知らせ・ブログ</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">保護者の方へ</a></li>
+                <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
             </ul>
         </div>
 

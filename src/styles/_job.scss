@@ -6,12 +6,21 @@
   .sec01 {
     padding: 36px 0 178px;
 
+    @include media(mobile) {
+      padding: 38px 0 79px;
+    }
+
     .sec01-txt {
       h4 {
         font-size: 25px;
         font-weight: bold;
         letter-spacing: .1em;
         margin-bottom: 18px;
+
+        @include media(middle) {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
       }
 
       p {
@@ -19,11 +28,19 @@
         font-weight: 500;
         letter-spacing: .1em;
         line-height: 1.94;
+
+        @include media(middle) {
+          font-size: 15px;
+        }
       }
     }
 
     .sec01-list {
       margin-top: 109px;
+
+      @include media(middle) {
+        margin-top: 38px;
+      }
 
       .sec01-list-wrap {
         margin-bottom: 182px;
@@ -32,9 +49,24 @@
           margin-bottom: 0;
         }
 
+        @include media(middle) {
+          margin-bottom: 82px;
+        }
+
         .sec01-list-wrap-img {
           width: 590px;
           height: 440px;
+
+          @include media(middle) {
+            width: 245px;
+            height: 220px;
+          }
+
+          @include media(mobile) {
+            width: 100%;
+            height: 237px;
+            margin-bottom: 20px;
+          }
 
           img {
             width: 100%;
@@ -50,12 +82,24 @@
           flex-wrap: wrap;
           align-content: space-between;
 
+          @include media(middle) {
+            width: calc(100% - 245px);
+          }
+
+          @include media(mobile) {
+            width: 100%;
+          }
+
           .sec01-list-wrap-txt-col {
             h2 {
               font-size: 30px;
               letter-spacing: .1em;
               font-weight: bold;
               margin-bottom: 15px;
+
+              @include media(middle) {
+                font-size: 25px;
+              }
             }
 
             p {
@@ -63,6 +107,10 @@
               font-weight: 500;
               letter-spacing: .1em;
               line-height: 2;
+
+              @include media(middle) {
+                margin-bottom: 20px;
+              }
             }
           }
         }
@@ -91,8 +139,14 @@
   .sec01 {
     padding: 52px 0 171px;
 
+    @include media(mobile) {
+      padding: 38px 0 111px;
+    }
+
     .sec01-wrap {
       margin-bottom: 75px;
+      display: flex;
+      flex-direction: column;
 
       p {
         font-size: 20px;
@@ -100,11 +154,33 @@
         letter-spacing: .1em;
         line-height: 1.5;
         margin-bottom: 25px;
+        width: 100%;
+        order: 1;
+
+        @include media(middle) {
+          font-size: 15px;
+        }
+
+        @include media(mobile) {
+          order: 2;
+          margin-bottom: 0;
+        }
       }
 
       .sec01-wrap-img {
         width: 100%;
         height: 487px;
+        order: 2;
+
+        @include media(middle) {
+          height: 387px;
+        }
+
+        @include media(mobile) {
+          height: 211px;
+          order: 1;
+          margin-bottom: 25px;
+        }
 
         img {
           width: 100%;
@@ -123,6 +199,12 @@
         position: relative;
         padding-top: 30px;
 
+        @include media(mobile) {
+          width: 100%;
+          padding: 0;
+          margin-bottom: 50px;
+        }
+
         .sec01-col-right-img {
           position: sticky;
           top: 0px;
@@ -135,10 +217,18 @@
             content: "";
             width: 100%;
             height: 100%;
-            background-color: var(--color-main);
+            background-color: var(--color-sub);
             z-index: 4;
             border-radius: 10px;
             transform: rotate(-5deg);
+          }
+
+          @include media(middle) {
+            height: 200px;
+          }
+
+          @include media(mobile) {
+            position: static;
           }
 
           img {
@@ -156,12 +246,25 @@
         width: 53%;
         padding-right: 70px;
 
+        @include media(middle) {
+          padding-right: 25px;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+          padding: 0;
+        }
+
         .sec01-col-left-txt {
           width: 100%;
           margin-bottom: 75px;
 
           &:last-child {
             margin-bottom: 0;
+          }
+
+          @include media(mobile) {
+            margin-bottom: 50px;
           }
 
           h2 {
@@ -171,6 +274,10 @@
             padding-bottom: 10px;
             border-bottom: solid 3px #000000;
             margin-bottom: 25px;
+
+            @include media(middle) {
+              font-size: 20px;
+            }
           }
 
           p {
@@ -196,13 +303,13 @@
         margin-bottom: 119px;
         box-shadow: 0 3px 6px #00000016;
 
-        &::before{
+        &::before {
           position: absolute;
           display: block;
           content: "";
           width: 100%;
           height: 100%;
-          background-color: var(--color-main);
+          background-color: var(--color-sub);
           top: 0;
           left: 0;
           transform: rotate(-5deg);
@@ -210,14 +317,34 @@
           border-radius: 10px;
         }
 
+        @include media(middle) {
+          padding: 25px;
+          margin-bottom: 69px;
+        }
+
+        @include media(mobile) {
+          padding: 30px 45px;
+          height: 312px;
+          margin-bottom: 32px;
+        }
+
         .hukidashi {
           position: absolute;
           top: -45px;
           left: -60px;
 
+          @include media(middle) {
+            left: -50px;
+          }
+
+          @include media(mobile) {
+            left: -15px;
+            top: -20px;
+          }
+
           .hukidashi-txt {
             position: relative;
-            background-color: var(--color-sub);
+            background-color: var(--color-main);
             display: block;
             width: 207px;
             height: 64px;
@@ -235,7 +362,7 @@
               display: block;
               content: "";
               position: absolute;
-              background-color: var(--color-sub);
+              background-color: var(--color-main);
               width: 30px;
               height: 18px;
               -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
@@ -243,6 +370,19 @@
               bottom: -7px;
               left: 50px;
               transform: rotate(-100deg);
+
+              @include media(middle) {
+                width: 25px;
+                height: 13px;
+                bottom: -5px;
+                left: 35px;
+              }
+            }
+
+            @include media(middle) {
+              width: 156px;
+              height: 48px;
+              font-size: 20px;
             }
           }
         }
@@ -254,12 +394,21 @@
           flex-wrap: wrap;
           align-content: space-between;
 
+          @include media(middle) {
+            width: calc(100% - 193px);
+            padding-right: 20px;
+          }
+
           .sec02-interview-wrap-txt-pc-flex {
             h3 {
               font-size: 20px;
               font-weight: bold;
               letter-spacing: .1em;
               margin-bottom: 10px;
+
+              @include media(middle) {
+                font-size: 18px;
+              }
             }
 
             p {
@@ -267,6 +416,10 @@
               font-weight: 400;
               letter-spacing: .1em;
               line-height: 1.6;
+
+              @include media(middle) {
+                font-size: 13px;
+              }
             }
           }
 
@@ -283,22 +436,71 @@
           width: 223px;
           height: 252px;
 
+          @include media(middle) {
+            width: 193px;
+            height: 222px;
+          }
+
+          @include media(mobile) {
+            width: 100%;
+            height: 100%;
+          }
+
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
+
+            @include media(mobile) {
+              //object-fit: contain;
+              object-position: top;
+            }
           }
         }
       }
 
-      .sec02-interview-btn{
+      .sec02-interview-wrap-txt-sp {
+        
+        h3 {
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: .1em;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 15px;
+          font-weight: 400;
+          letter-spacing: .1em;
+          line-height: 1.6;
+        }
+
+        h4 {
+          font-size: 15px;
+          font-weight: 400;
+          letter-spacing: .1em;
+          line-height: 1.6;
+        }
+      }
+
+      .sec02-interview-btn {
         justify-content: space-between;
-        .com-btn-main{
+
+        @media (max-width: 797px){
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .com-btn-sub {
           width: 49%;
           max-width: 399px;
+          @media (max-width: 797px){
+            width: 100%;
+            margin-top: 35px;
+          }
         }
-      }      
+      }
     }
   }
 }

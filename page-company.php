@@ -17,7 +17,7 @@
     </div>
     <section class="sec01">
         <div class="content-width">
-            <div class="page-com-title bg-sub">
+            <div class="page-com-title bg-main">
                 <h2 class="color-accent">代表メッセージ</h2>
             </div>
             <div class="sec01-wrap flex flex-wrap">
@@ -42,7 +42,7 @@
 
     <section class="sec02">
         <div class="content-width">
-            <div class="page-com-title bg-sub">
+            <div class="page-com-title bg-main">
                 <h2 class="color-accent">どんな会社？</h2>
             </div>
             <div class="sec02-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img02.jpg" alt="どんな会社？"></div>
@@ -63,14 +63,13 @@
 
     <section class="sec03">
         <div class="content-width">
-            <div class="page-com-title bg-sub">
+            <div class="page-com-title bg-main">
                 <h2 class="color-accent">理念と価値観</h2>
             </div>
             <div class="sec03-wrap">
                 <div class="sec03-cms-list">
-                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img03.jpg" alt="企業理念"></div>
                     <div class="cms-list-txt">
-                        <h3 class="color-main">企業理念</h3>
+                        <h3 class="color-sub">企業理念</h3>
                         <h4>可能性を信じ未来を描く</h4>
                         <p>
                             ワンページが大切にしているのは、お客様の期待を超える体験を生み出し、企業の“新しい1ページ”を一緒につくっていくことです。<br>
@@ -78,23 +77,23 @@
                             そして、その中心にいるのは“人”。社員一人ひとりが、自分の強みを伸ばしながら働ける環境をつくり、心の豊かさと生活の安定、どちらも大切にしています。
                         </p>
                     </div>
+                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img03.jpg" alt="企業理念"></div>
                 </div>
 
                 <div class="sec03-cms-list">
-                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img04.jpg" alt="目的"></div>
                     <div class="cms-list-txt">
-                        <h3 class="color-main">目的</h3>
+                        <h3 class="color-sub">目的</h3>
                         <h4>すべての人の幸せを叶える</h4>
                         <p>
                             私たちは、すべての人が自分らしく輝ける社会を目指し、一人一人の幸せを実現します。関わるすべての人の夢や願いに寄り添い、可能性を広げることで新たな1ページを共に創造し、物心両面の幸福の追求と、社会の平和と繁栄の寄与することを目的とします。
                         </p>
                     </div>
+                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img04.jpg" alt="目的"></div>
                 </div>
 
                 <div class="sec03-cms-list">
-                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img05.jpg" alt="展望"></div>
                     <div class="cms-list-txt">
-                        <h3 class="color-main">展望</h3>
+                        <h3 class="color-sub">展望</h3>
                         <h4>日本一のWeb戦略コンサルティング会社</h4>
                         <p>
                             ワンページが大切にしているのは、お客様の期待を超える体験を生み出し、企業の“新しい1ページ”を一緒につくっていくことです。<br>
@@ -102,12 +101,12 @@
                             そして、その中心にいるのは“人”。社員一人ひとりが、自分の強みを伸ばしながら働ける環境をつくり、心の豊かさと生活の安定、どちらも大切にしています。
                         </p>
                     </div>
+                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img05.jpg" alt="展望"></div>
                 </div>
 
                 <div class="sec03-cms-list">
-                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img06.jpg" alt="行動指針"></div>
                     <div class="cms-list-txt">
-                        <h3 class="color-main">行動指針</h3>
+                        <h3 class="color-sub">行動指針</h3>
                         <h4>8つの指針に基づいて行動します</h4>
                         <p>
                             行動指針とは、「ワンページの社員としてふさわしい8つの行動規範」のことです。この指針を体現することで徳と才を兼ね備えた一流の人財を目指します。
@@ -145,6 +144,7 @@
                             <dd>「私たちは感謝の心を言葉と行動で届けます」</dd>
                         </dl>
                     </div>
+                    <div class="cms-list-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/img06.jpg" alt="行動指針"></div>
                 </div>
             </div>
         </div>
@@ -152,7 +152,7 @@
 
     <section class="sec04">
         <div class="content-width">
-            <div class="page-com-title bg-sub">
+            <div class="page-com-title bg-main">
                 <h2 class="color-accent">求める人物像</h2>
             </div>
             <div class="sec04-wrap">
@@ -190,60 +190,60 @@
 
     <section class="sec05">
         <div class="content-width">
-            <div class="page-com-title bg-sub">
+            <div class="page-com-title bg-main">
                 <h2 class="color-accent">社内制度/福利厚生</h2>
             </div>
             <ul class="sec05-cms flex flex-wrap">
                 <li>
-                    <h3 class="color-sub">年間休日126日！</h3>
+                    <h3 class="color-main">年間休日126日！</h3>
                     <p>
                         プライベートも大切にしながら働ける環境です。自分の時間を確保できるから、心も体も無理なく続けられます。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">オフィスグリコ完備</h3>
+                    <h3 class="color-main">オフィスグリコ完備</h3>
                     <p>
                         仕事の合間にほっと一息つける環境づくりも大切にしています。おやつ好きには嬉しいポイントです。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">疲れた時に癒される魚たち</h3>
+                    <h3 class="color-main">疲れた時に癒される魚たち</h3>
                     <p>
                         オフィスには水槽があり、揺れる水草と泳ぐ魚を見るだけで気持ちがふっと軽くなります。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">フレックスタイム制<br>(コアタイム 11:00〜15:00)</h3>
+                    <h3 class="color-main">フレックスタイム制<br>(コアタイム 11:00〜15:00)</h3>
                     <p>
                         自由な働き方を実現するため、フレックス制度を取り入れています。通勤ラッシュを避けて、少しゆったりした朝を。ライフスタイルに合わせて働く時間を柔軟に調整できます。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">リモートワーク対応<br>(業務状況に応じて)</h3>
+                    <h3 class="color-main">リモートワーク対応<br>(業務状況に応じて)</h3>
                     <p>
                         週1日~最大週4日まで在宅勤務が可能です。集中しやすい環境を整えて、自分らしく働けます。業務の状況によって、ご相談ください。(新卒1年目は原則フル出社を推奨しています。)
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">有給の取りやすさ◎</h3>
+                    <h3 class="color-main">有給の取りやすさ◎</h3>
                     <p>
                         「海外旅行に1週間」「推しのライブで平日休み」など、自由度高く使えます。自分らしい時間の使い方を、チーム全体で尊重しています。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">PC・スマートフォン貸与</h3>
+                    <h3 class="color-main">PC・スマートフォン貸与</h3>
                     <p>
                         どこで働いてもパフォーマンスを発揮できるよう、必要なツールや環境を会社がしっかりサポートします。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">1on1の実施(週1回)</h3>
+                    <h3 class="color-main">1on1の実施(週1回)</h3>
                     <p>
                         マネージャーやリーダーと、週に1回の1on1を実施。小さな悩みや成長の兆しを言語化しながら、前向きに次のステップへ進むサポートをします。
                     </p>
                 </li>
                 <li>
-                    <h3 class="color-sub">社内表彰制度</h3>
+                    <h3 class="color-main">社内表彰制度</h3>
                     <p>
                         頑張りは見逃さない。称賛が成長を後押しする。挑戦・成果・日々の工夫を正当に評価し年1回表彰式があります。社員一人ひとりの貢献が組織の力になると信じています。
                     </p>
@@ -254,7 +254,7 @@
 
     <section class="sec06">
         <div class="content-width">
-            <div class="page-com-title bg-sub">
+            <div class="page-com-title bg-main">
                 <h2 class="color-accent">オフィスギャラリー</h2>
             </div>
         </div>
@@ -304,7 +304,7 @@
     <section class="sec07">
         <div class="content-width">
             <div class="sec07-wrap">
-                <div class="page-com-title bg-sub">
+                <div class="page-com-title bg-main">
                     <h2 class="color-accent">会社概要</h2>
                 </div>
                 <div class="sec07-cms-list">

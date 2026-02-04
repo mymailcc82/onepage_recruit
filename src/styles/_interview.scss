@@ -1,0 +1,793 @@
+@use './tokens' as *;
+
+
+.interview-main {
+  .interview-sec {
+    padding: 45px 0 80px;
+
+    @include media(mobile) {
+      padding: 36px 0 50px;
+    }
+
+    .interview-sec-txt {
+
+      h2 {
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: .1em;
+        text-align: center;
+
+        @include media(middle) {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .interview-sec-list {
+      .interview-sec-list-col {
+        width: 32%;
+        margin-right: 2%;
+        margin-top: 59px;
+
+        &:nth-of-type(3n) {
+          margin-right: 0;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+        }
+
+        .col-img {
+          width: 78%;
+          height: 316px;
+          margin: 0 auto 50px;
+          position: relative;
+
+          &::before {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-main);
+            border-radius: 10px;
+            top: 13px;
+            left: 15px;
+            transform: rotate(-6deg);
+            z-index: 4;
+          }
+
+          &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-sub);
+            border-radius: 10px;
+            top: 0px;
+            left: -14px;
+            transform: rotate(-6deg);
+            z-index: 3;
+          }
+
+          @include media(middle) {
+            height: 236px;
+          }
+
+          @include media(mobile) {
+            height: 316px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            position: relative;
+            z-index: 5;
+
+            @include media(mobile) {
+              object-position: top;
+            }
+          }
+        }
+
+        .col-txt {
+          width: 90%;
+          max-width: 287px;
+          margin: 0 auto;
+
+          @include media(mobile) {
+            width: 90%;
+            max-width: 100%;
+          }
+
+          h3 {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: .1em;
+          }
+
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5px;
+
+            li {
+              font-size: 12px;
+              font-weight: 500;
+              color: #898989;
+              margin-right: 10px;
+            }
+          }
+
+          .day {
+            li {
+              position: relative;
+              margin-right: 0;
+
+              &:first-of-type {
+                padding-right: 16px;
+
+                &::before {
+                  position: absolute;
+                  display: block;
+                  content: "";
+                  width: 1px;
+                  height: 13px;
+                  background-color: #898989;
+                  top: 50%;
+                  right: 8px;
+                  transform: translateY(-50%);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*single*/
+.interview-sub {
+  .interview-sub-visual {
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+
+    .clip-sub {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 7;
+      width: 100%;
+      height: 52.4px;
+      -webkit-clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
+      clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
+
+      .breadcrumb {
+        max-width: 100%;
+        width: 100%;
+        padding-left: 30px;
+        margin: 15px auto;
+
+        @include media(mobile){
+          padding-left: 10px;
+          margin: 10px auto;
+        }
+      }
+    }
+
+    .clip-main {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 7;
+      width: 100%;
+      height: 52.4px;
+      -webkit-clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
+      clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
+      transform: scaleX(-1) scaleY(-1);
+
+    }
+
+    .interview-sub-visual-img {
+      width: 53%;
+      height: 710px;
+
+      @include media(mobile) {
+        width: 100%;
+        height: 380px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .interview-sub-visual-txt {
+      width: 47%;
+      padding-left: 5%;
+
+      @include media(mobile) {
+        width: 90%;
+        margin: 0 auto;
+        padding: 35px 0 63px;
+      }
+
+      .interview-sub-visual-txt-wrap {
+        width: 100%;
+        max-width: 505px;
+        padding-right: 50px;
+        margin-left: auto;
+
+        @include media(middle) {
+          padding-right: 20px;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+          max-width: 100%;
+          padding: 0;
+        }
+
+        h1 {
+          font-size: 25px;
+          font-weight: 800;
+          letter-spacing: .1em;
+          line-height: 1.6;
+          margin-bottom: 20px;
+
+          @include media(middle) {
+            font-size: 20px;
+            margin-bottom: 14px;
+          }
+        }
+
+        .name {
+          font-size: 20px;
+          font-weight: 800;
+          letter-spacing: .1em;
+          margin-bottom: 5px;
+          display: block;
+        }
+
+        .category {
+          margin-bottom: 5px;
+
+          li {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .12em;
+            color: var(--color-main);
+            margin-right: 10px;
+          }
+        }
+
+        .day {
+          margin-bottom: 40px;
+
+          li {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: .12em;
+            color: var(--color-main);
+            margin-right: 10px;
+            position: relative;
+            margin-right: 0;
+
+            &:first-of-type {
+              padding-right: 16px;
+
+              &::before {
+                position: absolute;
+                display: block;
+                content: "";
+                width: 1px;
+                height: 13px;
+                background-color: #898989;
+                top: 50%;
+                right: 8px;
+                transform: translateY(-50%);
+              }
+            }
+          }
+        }
+
+        h2 {
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: .08em;
+          font-family: var(--font-en);
+        }
+
+        p {
+          font-size: 15px;
+          font-weight: 500;
+          letter-spacing: .1em;
+          line-height: 2;
+        }
+      }
+    }
+  }
+
+
+  .sec01 {
+    padding: 115px 0 153px;
+
+    @include media(mobile) {
+      padding: 57px 0 67px;
+    }
+  }
+
+  .interview-sub-col {
+
+    .interview-sub-col-txt {
+      margin-top: 64px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      @include media(mobile) {
+        margin-top: 40px;
+      }
+
+      h3 {
+        font-size: 25px;
+        font-weight: 800;
+        letter-spacing: .1em;
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 30px;
+
+        &::before {
+          position: absolute;
+          display: block;
+          content: "Q.";
+          width: 30px;
+          height: 30px;
+          left: 0;
+          font-size: 25px;
+          font-weight: 800;
+          letter-spacing: .1em;
+
+          @include media(mobile) {
+            font-size: 20px;
+          }
+        }
+
+        @include media(mobile) {
+          font-size: 20px;
+          padding-left: 25px;
+        }
+      }
+
+      p {
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: .1em;
+        line-height: 2;
+      }
+    }
+
+    .interview-sub-col-img-1 {
+      margin-top: 75px;
+      justify-content: space-between;
+
+      @include media(mobile) {
+        margin-top: 45px;
+      }
+
+      span {
+        display: block;
+        width: 47%;
+        height: 392px;
+
+        @include media(middle) {
+          height: 292px;
+        }
+
+        @include media(mobile) {
+          height: 139px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+      }
+
+      .interview-sub-col-img-1-2 {
+        margin-top: 70px;
+
+        @include media(middle) {
+          margin-top: 55px;
+        }
+
+        @include media(mobile) {
+          margin-top: 25px;
+        }
+      }
+    }
+
+    .interview-sub-col-img-2 {
+      width: 100%;
+      height: 406px;
+      margin-top: 93px;
+
+      @include media(middle){
+        height: 303px;
+      }
+
+      @include media(mobile){
+        margin-top: 45px;
+        height: 143px;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+    }
+
+    .interview-sub-favorite {
+      margin-top: 113px;
+
+      @include media(mobile){
+        margin-top: 70px;
+      }
+
+      .interview-sub-favorite-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 33px 30px 30px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin-bottom: 119px;
+        box-shadow: 0 3px 6px #00000016;
+
+        &::before {
+          position: absolute;
+          display: block;
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: var(--color-sub);
+          top: 0;
+          left: 0;
+          transform: rotate(-5deg);
+          z-index: -1;
+          border-radius: 10px;
+        }
+
+        @include media(middle) {
+          padding: 25px;
+          margin-bottom: 69px;
+        }
+
+        @include media(mobile) {
+          padding: 30px 45px;
+          height: 312px;
+          margin-bottom: 32px;
+        }
+
+        .hukidashi {
+          position: absolute;
+          top: -45px;
+          left: -60px;
+
+          @include media(middle) {
+            left: -50px;
+          }
+
+          @include media(mobile) {
+            left: -15px;
+            top: -20px;
+          }
+
+          .hukidashi-txt {
+            position: relative;
+            background-color: var(--color-main);
+            display: block;
+            width: 207px;
+            height: 64px;
+            border-radius: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            letter-spacing: .1em;
+            font-weight: bold;
+            color: var(--color-accent);
+            transform: rotate(-10deg);
+
+            &::before {
+              display: block;
+              content: "";
+              position: absolute;
+              background-color: var(--color-main);
+              width: 30px;
+              height: 18px;
+              -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+              clip-path: polygon(50% 0, 0 100%, 100% 100%);
+              bottom: -7px;
+              left: 50px;
+              transform: rotate(-100deg);
+
+              @include media(middle) {
+                width: 25px;
+                height: 13px;
+                bottom: -5px;
+                left: 35px;
+              }
+            }
+
+            @include media(middle) {
+              width: 156px;
+              height: 48px;
+              font-size: 20px;
+            }
+          }
+        }
+
+        .interview-sub-favorite-txt-pc {
+          width: calc(100% - 223px);
+          padding-right: 40px;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: space-between;
+
+          @include media(middle) {
+            width: calc(100% - 193px);
+            padding-right: 20px;
+          }
+
+          .interview-sub-favorite-txt-pc-flex {
+            h3 {
+              font-size: 20px;
+              font-weight: bold;
+              letter-spacing: .1em;
+              margin-bottom: 10px;
+
+              @include media(middle) {
+                font-size: 18px;
+              }
+            }
+
+            p {
+              font-size: 15px;
+              font-weight: 400;
+              letter-spacing: .1em;
+              line-height: 1.6;
+
+              @include media(middle) {
+                font-size: 13px;
+              }
+            }
+          }
+
+          h4 {
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: .1em;
+            line-height: 1.6;
+          }
+
+        }
+
+        .interview-sub-favorite-img {
+          width: 223px;
+          height: 252px;
+
+          @include media(middle) {
+            width: 193px;
+            height: 222px;
+          }
+
+          @include media(mobile) {
+            width: 100%;
+            height: 100%;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+
+            @include media(mobile) {
+              //object-fit: contain;
+              object-position: top;
+            }
+          }
+        }
+      }
+
+      .interview-sub-favorite-txt-sp {
+
+        h3 {
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: .1em;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 15px;
+          font-weight: 400;
+          letter-spacing: .1em;
+          line-height: 1.6;
+        }
+
+        h4 {
+          font-size: 15px;
+          font-weight: 400;
+          letter-spacing: .1em;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  .sec02 {
+    padding-bottom: 53px;
+
+    .others-title {
+      text-align: center;
+
+      span {
+        font-size: 70px;
+        font-weight: 800;
+        letter-spacing: .08em;
+
+        @include media(middle){
+          font-size: 40px;
+        }
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: .12em;
+      }
+    }
+
+    .interview-sec-list {
+      justify-content: center;
+
+      .interview-sec-list-col {
+        width: 32%;
+        margin-left: 2%;
+        margin-top: 59px;
+
+        &:nth-of-type(3n + 1) {
+          margin-left: 0;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+        }
+
+        .col-img {
+          width: 78%;
+          height: 316px;
+          margin: 0 auto 50px;
+          position: relative;
+
+          &::before {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-main);
+            border-radius: 10px;
+            top: 13px;
+            left: 15px;
+            transform: rotate(-6deg);
+            z-index: 4;
+          }
+
+          &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-sub);
+            border-radius: 10px;
+            top: 0px;
+            left: -14px;
+            transform: rotate(-6deg);
+            z-index: 3;
+          }
+
+          @include media(middle) {
+            height: 236px;
+          }
+
+          @include media(mobile) {
+            height: 316px;
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            position: relative;
+            z-index: 5;
+
+            @include media(mobile) {
+              object-position: top;
+            }
+          }
+        }
+
+        .col-txt {
+          width: 90%;
+          max-width: 287px;
+          margin: 0 auto;
+
+          @include media(mobile) {
+            width: 90%;
+            max-width: 100%;
+          }
+
+          h3 {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: .1em;
+          }
+
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 5px;
+
+            li {
+              font-size: 12px;
+              font-weight: 500;
+              color: #898989;
+              margin-right: 10px;
+            }
+          }
+
+          .day {
+            li {
+              position: relative;
+              margin-right: 0;
+
+              &:first-of-type {
+                padding-right: 16px;
+
+                &::before {
+                  position: absolute;
+                  display: block;
+                  content: "";
+                  width: 1px;
+                  height: 13px;
+                  background-color: #898989;
+                  top: 50%;
+                  right: 8px;
+                  transform: translateY(-50%);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

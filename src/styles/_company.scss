@@ -4,17 +4,33 @@
   .sec01 {
     padding: 79px 0 157px;
 
+    @include media(mobile) {
+      padding: 38px 0 66px;
+    }
+
     .sec01-wrap {
       margin-top: 34px;
 
+      @include media(mobile) {
+        margin-top: 18px;
+      }
+
       .sec01-left {
         width: 468px;
+
+        @include media(middle) {
+          width: 317px;
+        }
+
+        @include media(mobile) {
+          margin: 0 auto 20px;
+        }
 
         .sec01-left-img {
           padding-top: 45px;
           position: relative;
 
-          .img-bg-main {
+          .img-bg-sub {
             display: block;
             position: absolute;
             width: 370px;
@@ -24,9 +40,16 @@
             left: 25px;
             top: 12px;
             transform: rotate(-4deg);
+
+            @include media(middle) {
+              width: 253px;
+              height: 298px;
+              left: 15px;
+              top: 25px;
+            }
           }
 
-          .img-bg-sub {
+          .img-bg-main {
             display: block;
             position: absolute;
             width: 370px;
@@ -36,6 +59,13 @@
             top: 12px;
             right: 25px;
             transform: rotate(4deg);
+
+            @include media(middle) {
+              width: 253px;
+              height: 298px;
+              top: 25px;
+              right: 15px;
+            }
           }
 
           .sec01-left-img-wrap {
@@ -43,6 +73,10 @@
             margin: 0 auto;
             position: relative;
             z-index: 5;
+
+            @include media(middle) {
+              width: 241px;
+            }
 
             img {
               width: 100%;
@@ -57,12 +91,27 @@
         width: calc(100% - 468px);
         padding-left: 25px;
 
+        @include media(middle) {
+          width: calc(100% - 317px);
+          padding-left: 10px;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+          padding: 0;
+        }
+
         h3 {
           font-size: 30px;
           font-weight: bold;
           letter-spacing: .1em;
           line-height: 1.66;
           margin-bottom: 25px;
+
+          @include media(middle) {
+            font-size: 20px;
+            margin-bottom: 5px;
+          }
         }
 
         p {
@@ -94,10 +143,23 @@
   .sec02 {
     padding-bottom: 155px;
 
+    @include media(mobile) {
+      padding-bottom: 66px;
+    }
+
     .sec02-img {
       margin: 44px auto;
       width: 100%;
       height: 430px;
+
+      @include media(middle) {
+        height: 215px;
+      }
+
+      @include media(mobile) {
+        margin: 23px auto;
+        height: 125px;
+      }
 
       img {
         width: 100%;
@@ -112,16 +174,37 @@
         width: 43%;
         padding-right: 2vw;
 
+        @include media(middle) {
+          width: 40%;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+          padding: 0;
+        }
+
         h3 {
           font-size: 30px;
           font-weight: bold;
           letter-spacing: .1em;
           line-height: 1.66;
+
+          @include media(middle) {
+            font-size: 20px;
+          }
         }
       }
 
       .sec02-wrap-right {
         width: 57%;
+
+        @include media(middle) {
+          width: 60%;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+        }
 
         p {
           font-size: 15px;
@@ -136,22 +219,45 @@
   .sec03 {
     padding-bottom: 111px;
 
+    @include media(mobile) {
+      padding-bottom: 66px;
+    }
+
     .sec03-wrap {
       margin-top: 81px;
+
+      @include media(mobile) {
+        margin-top: 38px;
+      }
 
       .sec03-cms-list {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row-reverse;
         margin-top: 125px;
 
         &:first-child {
           margin-top: 0;
         }
 
+        @include media(mobile) {
+          margin-top: 72px;
+        }
+
         .cms-list-img {
           width: 445px;
           height: 445px;
+
+          @include media(middle) {
+            width: 230px;
+            height: 230px;
+          }
+
+          @include media(mobile) {
+            width: 100%;
+            height: 318px;
+          }
 
           img {
             width: 100%;
@@ -165,6 +271,16 @@
           width: calc(100% - 445px);
           padding-left: 3vw;
 
+          @include media(middle) {
+            width: calc(100% - 230px);
+          }
+
+          @include media(mobile) {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 19px;
+          }
+
           h3 {
             font-size: 20px;
             font-weight: bold;
@@ -172,6 +288,10 @@
             padding-bottom: 10px;
             border-bottom: solid 1px #707070;
             margin-bottom: 26px;
+
+            @include media(middle) {
+              margin-bottom: 19px;
+            }
           }
 
           h4 {
@@ -179,6 +299,10 @@
             font-weight: bold;
             letter-spacing: .1em;
             line-height: 1.25;
+
+            @include media(middle) {
+              font-size: 25px;
+            }
           }
 
           p {
@@ -187,6 +311,10 @@
             letter-spacing: .1em;
             line-height: 2;
             margin-top: 20px;
+
+            @include media(middle) {
+              margin-top: 15px;
+            }
           }
 
           dl {
@@ -208,8 +336,16 @@
   .sec04 {
     padding-bottom: 104px;
 
+    @include media(mobile) {
+      padding-bottom: 66px;
+    }
+
     .sec04-wrap {
       margin-top: 40px;
+
+      @include media(mobile) {
+        margin-top: 20px;
+      }
 
       .sec04-txt {
         font-size: 15px;
@@ -217,6 +353,10 @@
         letter-spacing: .1em;
         line-height: 2;
         margin-bottom: 45px;
+
+        @include media(mobile) {
+          margin-bottom: 40px;
+        }
       }
 
       .sec04-list {
@@ -241,6 +381,10 @@
             &::after {
               content: "03";
             }
+
+            @include media(mobile) {
+              margin-bottom: 0;
+            }
           }
 
           &::before {
@@ -256,7 +400,16 @@
             -webkit-clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
             clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
             display: block;
-            background-color: var(--color-main);
+            background-color: var(--color-sub);
+
+            @include media(middle) {
+              width: 40%;
+            }
+
+            @include media(mobile) {
+              width: 31.6%;
+              max-width: 102px;
+            }
           }
 
           &::after {
@@ -271,19 +424,21 @@
             left: 10px;
             top: 10px;
             color: var(--color-accent);
+
+            @include media(mobile) {
+              font-size: 30px;
+            }
           }
 
-          .num-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 31.6%;
-            height: 31.6%;
-            max-width: 102px;
-            max-height: 102px;
-            -webkit-clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
-            clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
-            display: block;
+          @include media(middle) {
+            width: 32%;
+            padding: 30px 15px 20px;
+          }
+
+          @include media(mobile) {
+            width: 100%;
+            margin-bottom: 35px;
+            padding: 35px 23px 25px;
           }
 
           .sec04-list-icon {
@@ -292,6 +447,14 @@
             height: 91.5px;
             width: auto;
             display: block;
+
+            @include media(middle) {
+              height: 61.5px;
+            }
+
+            @include media(mobile) {
+              height: 91.5px;
+            }
 
             img {
               object-fit: contain;
@@ -306,6 +469,14 @@
             letter-spacing: .1em;
             line-height: 1.5;
             margin: 17px 0 10px;
+
+            @include media(middle) {
+              font-size: 18px;
+            }
+
+            @include media(mobile) {
+              font-size: 20px;
+            }
           }
 
           p {
@@ -313,6 +484,14 @@
             font-weight: 500;
             letter-spacing: .1em;
             line-height: 2;
+
+            @include media(middle) {
+              font-size: 13px;
+            }
+
+            @include media(mobile) {
+              font-size: 15px;
+            }
           }
         }
       }
@@ -321,6 +500,10 @@
 
   .sec05 {
     padding-bottom: 163px;
+
+    @include media(mobile) {
+      padding-bottom: 66px;
+    }
 
     .sec05-cms {
       margin-top: 51px;
@@ -343,12 +526,36 @@
           margin-top: 0;
         }
 
+        &:last-of-type {
+          @include media(mobile) {
+            margin: 0;
+          }
+        }
+
+        @include media(middle) {
+          width: 32%;
+          margin-right: 2%;
+        }
+
+        @include media(mobile) {
+          width: 100%;
+          margin: 0 auto 34px;
+        }
+
         h3 {
           font-size: 20px;
           font-weight: bold;
           letter-spacing: .1em;
           line-height: 1.5;
           text-align: center;
+
+          @include media(middle) {
+            font-size: 18px;
+          }
+
+          @include media(mobile) {
+            font-size: 20px;
+          }
         }
 
         p {
@@ -357,6 +564,14 @@
           letter-spacing: .1em;
           line-height: 2;
           margin-top: 16px;
+
+          @include media(middle) {
+            font-size: 13px;
+          }
+
+          @include media(mobile) {
+            font-size: 15px;
+          }
         }
       }
     }
@@ -365,8 +580,16 @@
   .sec06 {
     padding-bottom: 200px;
 
+    @include media(mobile) {
+      padding-bottom: 92px;
+    }
+
     .sec06-cms-list {
       margin-top: 47px;
+
+      @include media(mobile) {
+        margin-top: 29px;
+      }
 
       .gallery-swiper {
         overflow: hidden;
@@ -376,6 +599,15 @@
           .swiper-slide {
             width: 67%;
             height: 602px;
+
+            @include media(middle) {
+              height: 301px;
+            }
+
+            @include media(mobile) {
+              width: 80%;
+              height: 212px;
+            }
 
             img {
               width: 100%;
@@ -402,7 +634,7 @@
       }
 
       .gallery-pagination .swiper-pagination-bullet-active {
-        background: var(--color-main);
+        background: var(--color-sub);
       }
 
       .gallery-nav {
@@ -415,17 +647,34 @@
         background: transparent;
         cursor: pointer;
 
-        img{
+        @include media(middle) {
+          top: 43%;
+        }
+
+        img {
           display: block;
           width: 47px;
+
+          @include media(mobile) {
+            width: 32px;
+          }
         }
       }
 
-      .gallery-prev{
+      .gallery-prev {
         left: calc(50% - 38.5%);
+
+        @include media(mobile) {
+          left: 7%;
+        }
       }
-      .gallery-next{
+
+      .gallery-next {
         right: calc(50% - 38.5%);
+
+        @include media(mobile) {
+          right: 7%;
+        }
       }
     }
   }
@@ -433,12 +682,24 @@
   .sec07 {
     padding-bottom: 91px;
 
+    @include media(mobile){
+      padding-bottom: 79px;
+    }
+
     .sec07-wrap {
-      border: solid 7px var(--color-main);
+      border: solid 7px var(--color-sub);
       border-radius: 10px;
       padding: 0 75px 85px;
       position: relative;
       background-color: #ffffff;
+
+      @include media(middle){
+        padding: 0 55px 65px;
+      }
+
+      @include media(mobile){
+        padding: 0 28px 30px;
+      }
 
       .page-com-title {
         transform: translateY(-50%);
@@ -451,12 +712,20 @@
           padding: 25px 0;
           border-bottom: solid 1px #E5E5E5;
 
+          @include media(mobile){
+            padding: 19px 0;
+          }
+
           dt {
             width: 114px;
             font-size: 15px;
             font-weight: bold;
             letter-spacing: .1em;
             line-height: 2;
+
+            @include media(mobile) {
+              width: 100%;
+            }
           }
 
           dd {
@@ -465,6 +734,10 @@
             font-weight: 500;
             letter-spacing: .1em;
             line-height: 2;
+
+            @include media(mobile) {
+              width: 100%;
+            }
           }
         }
       }

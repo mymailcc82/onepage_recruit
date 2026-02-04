@@ -84,11 +84,19 @@
                     </div>
                     <div class="sec02-interview-wrap-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img02.jpg" alt=""></div>
                 </div>
+                <div class="sec02-interview-wrap-txt-sp hidden-sm">
+                    <h3>フォローしあえる仲間に恵まれています！</h3>
+                    <p>
+                        制作チームは、わからないことを気軽に相談できる雰囲気があり、とても働きやすいです。職種に関係なく意見を出し合いながら進めるので、一人で抱え込むことはありません。<br>
+                        未経験でも、周りがしっかりフォローしてくれる環境なので安心して挑戦できます。チームで協力しながら、ものづくりを楽しめる職場だと思います。
+                    </p>
+                    <h4>2023年入社 / ディレクター<br>S.T</h4>
+                </div>
                 <div class="sec02-interview-btn flex">
-                    <div class="com-btn-main">
+                    <div class="com-btn-sub">
                         <a href="<?php echo home_url(); ?>/job/">部門一覧に戻る<i></i></a>
                     </div>
-                    <div class="com-btn-main">
+                    <div class="com-btn-sub">
                         <a href="<?php echo home_url(); ?>">インタビュー一覧を見る<i></i></a>
                     </div>
                 </div>

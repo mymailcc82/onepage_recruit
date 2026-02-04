@@ -1,0 +1,116 @@
+@use './tokens' as *;
+
+.news-main {
+  .news-main-wrap {
+    padding: 114px 0 74px;
+
+    ul {
+      justify-content: space-between;
+      margin-bottom: 88px;
+
+      li {
+        width: 23.2%;
+        height: 81px;
+        border: solid 3px var(--color-sub);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        background-color: #fff;
+
+        &:hover{
+          cursor: pointer;
+        }
+
+        span {
+          font-size: 20px;
+          font-weight: bold;
+          letter-spacing: .1em;
+          color: var(--color-sub);
+        }
+      }
+
+      .active {
+        background-color: var(--color-sub) !important;
+
+        span {
+          color: #ffffff !important;
+        }
+
+      }
+    }
+
+    .number {
+      align-items: center;
+      margin-bottom: 23px;
+
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: .1em;
+        margin-right: 25px;
+      }
+
+      span {
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: .1em;
+      }
+    }
+
+    .news-main-list {
+      .news-main-list-wrap {
+        width: 32%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-left: 2%;
+        margin-bottom: 49px;
+
+        &:nth-child(3n + 1) {
+          margin-left: 0;
+        }
+
+        .news-main-list-wrap-img {
+          width: 100%;
+          height: 214px;
+          margin-bottom: 13px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+          }
+        }
+
+        span {
+          display: inline-block;
+          padding: 3px 10px;
+          background-color: #707070;
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: .12em;
+          color: #fff;
+          border-radius: 11px;
+          margin-right: 10px;
+        }
+
+        time {
+          font-size: 12px;
+          font-weight: 500;
+          letter-spacing: .12em;
+          color: #707070;
+        }
+
+        h3 {
+          font-size: 14px;
+          font-weight: bold;
+          letter-spacing: .12em;
+          margin-top: 13px;
+        }
+      }
+    }
+
+  }
+}
