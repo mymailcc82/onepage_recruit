@@ -19,81 +19,63 @@
     <section class="recruit-sec">
         <div class="content-width">
             <div class="recruit-wrap">
-                <div class="recruit-wrap-col">
-                    <a href="">
-                        <div class="recruit-wrap-col-img mb-2">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit.jpg" alt="募集要項画像1">
+                <?php /* ここに募集要項のループを入れる */ ?>
+                <?php // The Loop
+                if (have_posts()) :
+                    while (have_posts()) : the_post(); ?>
+
+
+                        <div class="recruit-wrap-col">
+                            <a href="<?php the_permalink(); ?>">
+                                <div class="recruit-wrap-col-img mb-2">
+                                    <?php if (has_post_thumbnail()): ?>
+                                        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
+                                    <?php else: ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/com/dummy.jpg" alt="募集要項画像1">
+                                    <?php endif; ?>
+                                </div>
+                                <div class="recruit-wrap-col-txt">
+                                    <ul>
+                                        <?php
+                                        $recruit_tags = get_field('recruit_tags');
+                                        if ($recruit_tags):
+                                            foreach ($recruit_tags as $tag):
+                                        ?>
+                                                <li>#<?php echo esc_html($tag); ?></li>
+                                        <?php
+                                            endforeach;
+                                        endif;
+                                        ?>
+                                    </ul>
+                                    <h3><?php the_title(); ?></h3>
+                                    <?php
+                                    $salary = get_field('salary');
+                                    $adress = get_field('adress');
+                                    ?>
+                                    <?php if ($salary): ?>
+                                        <dl>
+                                            <dt>給与</dt>
+                                            <dd><?php echo esc_html($salary); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
+                                    <?php if ($adress): ?>
+                                        <dl>
+                                            <dt>勤務地</dt>
+                                            <dd><?php echo esc_html($adress); ?></dd>
+                                        </dl>
+                                    <?php endif; ?>
+                                    <div class="com-btn-sub mt-4 com-btn-sub--small">
+                                        <span>詳しく見る<i></i></span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <div class="recruit-wrap-col-txt">
-                            <ul>
-                                <li>#制作</li>
-                                <li>#ITソリューション部</li>
-                            </ul>
-                            <h3>Webディレクター</h3>
-                            <dl>
-                                <dt>給与</dt>
-                                <dd>月給30万円~</dd>
-                            </dl>
-                            <dl>
-                                <dt>勤務地</dt>
-                                <dd>愛知県名古屋市中区丸の内</dd>
-                            </dl>
-                            <div class="com-btn-sub mt-4 com-btn-sub--small">
-                                <span>詳しく見る<i></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="recruit-wrap-col">
-                    <a href="">
-                        <div class="recruit-wrap-col-img mb-2">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit.jpg" alt="募集要項画像1">
-                        </div>
-                        <div class="recruit-wrap-col-txt">
-                            <ul>
-                                <li>#制作</li>
-                                <li>#ITソリューション部</li>
-                            </ul>
-                            <h3>Webディレクター</h3>
-                            <dl>
-                                <dt>給与</dt>
-                                <dd>月給30万円~</dd>
-                            </dl>
-                            <dl>
-                                <dt>勤務地</dt>
-                                <dd>愛知県名古屋市中区丸の内</dd>
-                            </dl>
-                            <div class="com-btn-sub mt-4 com-btn-sub--small">
-                                <span>詳しく見る<i></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="recruit-wrap-col">
-                    <a href="">
-                        <div class="recruit-wrap-col-img mb-2">
-                            <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit.jpg" alt="募集要項画像1">
-                        </div>
-                        <div class="recruit-wrap-col-txt">
-                            <ul>
-                                <li>#制作</li>
-                                <li>#ITソリューション部</li>
-                            </ul>
-                            <h3>Webディレクター</h3>
-                            <dl>
-                                <dt>給与</dt>
-                                <dd>月給30万円~</dd>
-                            </dl>
-                            <dl>
-                                <dt>勤務地</dt>
-                                <dd>愛知県名古屋市中区丸の内</dd>
-                            </dl>
-                            <div class="com-btn-sub mt-4 com-btn-sub--small">
-                                <span>詳しく見る<i></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <?php
+                    endwhile;
+                else :
+                    echo '<p>募集要項が見つかりませんでした。</p>';
+                endif;
+                ?>
             </div>
         </div>
     </section>

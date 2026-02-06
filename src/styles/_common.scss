@@ -119,7 +119,13 @@
   max-width: 904px;
   margin: 0 auto;
 }
-
+.content-width--mobile-full {
+  @include media(mobile) {
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
 .content-width-xs {
   width: 85%;
   max-width: 800px;
@@ -398,6 +404,7 @@
     transform: translate(-50%, -50%);
     z-index: 8;
     text-align: center;
+    width: 100%;
 
     span {
       color: #ffffff;
@@ -520,7 +527,7 @@
     letter-spacing: 0em;
     line-height: 0;
     @include media(middle) {
-      font-size: 16px;
+      font-size: 24px;
       width: 37px;
       height: 37px;
     }

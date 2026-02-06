@@ -126,6 +126,17 @@ function create_recruit_post_type()
         'rewrite' => array('slug' => 'recruit'),
     );
 
+    //tagを追加
+    register_taxonomy('recruit_tag', 'recruit', array(
+        'hierarchical' => false,
+        'label' => '採用タグ',
+        'singular_label' => '採用タグ',
+        'public' => true,
+        'show_admin_column' => true,
+        'rewrite' => true,
+
+    ));
+
     register_post_type('recruit', $args);
 }
 add_action('init', 'create_recruit_post_type');
@@ -401,10 +412,10 @@ function onepage_color_settings_page()
                         <p class="description">デフォルト: #fff</p>
                     </td>
             </table>
-            <h3>共通採用情報</h3>
+            <h3>共通</h3>
             <table class="form-table">
                 <tr>
-                    <th scope="row">共通採用情報背景色</th>
+                    <th scope="row">画像の上に重ねる背景色</th>
                     <td>
                         <input type="text"
                             name="onepage_color_recruit_bg"
@@ -546,6 +557,102 @@ function onepage_footer_settings_page()
 <?php
 }
 
+// ============================================================
+// 共通設定（管理画面サイドメニューに表示）
+// ============================================================
+
+function onepage_general_settings_menu()
+{
+    add_menu_page(
+        '共通設定',
+        '共通設定',
+        'manage_options',
+        'onepage-general-settings',
+        'onepage_general_settings_page',
+        'dashicons-admin-settings',
+        60
+    );
+}
+add_action('admin_menu', 'onepage_general_settings_menu');
+
+function onepage_general_settings_init()
+{
+    $fields = [
+        'onepage_company_name',
+        'onepage_company_zipcode',
+        'onepage_company_address',
+        'onepage_company_email',
+        'onepage_company_tel',
+    ];
+    foreach ($fields as $field) {
+        register_setting('onepage_general_settings_group', $field, [
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+            'default' => '',
+        ]);
+    }
+}
+add_action('admin_init', 'onepage_general_settings_init');
+
+function onepage_general_settings_page()
+{
+    $company_name    = get_option('onepage_company_name', '');
+    $company_zipcode = get_option('onepage_company_zipcode', '');
+    $company_address = get_option('onepage_company_address', '');
+    $company_email   = get_option('onepage_company_email', '');
+    $company_tel     = get_option('onepage_company_tel', '');
+?>
+    <div class="wrap">
+        <h1>共通設定</h1>
+        <form method="post" action="options.php">
+            <?php settings_fields('onepage_general_settings_group'); ?>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">社名</th>
+                    <td>
+                        <input type="text" name="onepage_company_name"
+                            value="<?php echo esc_attr($company_name); ?>"
+                            class="regular-text" placeholder="株式会社○○○" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">郵便番号</th>
+                    <td>
+                        <input type="text" name="onepage_company_zipcode"
+                            value="<?php echo esc_attr($company_zipcode); ?>"
+                            class="regular-text" placeholder="460-0002" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">住所</th>
+                    <td>
+                        <input type="text" name="onepage_company_address"
+                            value="<?php echo esc_attr($company_address); ?>"
+                            class="large-text" placeholder="愛知県名古屋市中区丸の内2丁目14-16 河合ビル6F" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">メールアドレス</th>
+                    <td>
+                        <input type="email" name="onepage_company_email"
+                            value="<?php echo esc_attr($company_email); ?>"
+                            class="regular-text" placeholder="contact@example.co.jp" />
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">電話番号</th>
+                    <td>
+                        <input type="tel" name="onepage_company_tel"
+                            value="<?php echo esc_attr($company_tel); ?>"
+                            class="regular-text" placeholder="052-223-0200" />
+                    </td>
+                </tr>
+            </table>
+            <?php submit_button('設定を保存'); ?>
+        </form>
+    </div>
+<?php
+}
 
 //ページネーション設定
 // ページネーション設定（#sec05 を付ける改良版）

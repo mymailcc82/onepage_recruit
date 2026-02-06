@@ -6,8 +6,13 @@
   right: 30px;
   width: 140px;
   height: 140px;
-
   z-index: 100;
+  @include media(middle) {
+    width: 102px;
+    height: 102px;
+    bottom: 10px;
+    right: 10px;
+  }
   a {
     display: flex;
     align-items: center;
@@ -32,6 +37,11 @@
     margin: 0px auto 5px;
     position: relative;
     left: 3px;
+    @include media(middle) {
+      width: 27px;
+      height: 31px;
+      left: 2px;
+    }
   }
   span {
     display: block;
@@ -41,6 +51,10 @@
     font-weight: bold;
     text-align: center;
     line-height: 1.28;
+    @include media(middle) {
+      font-size: 14px;
+      font-weight: 900;
+    }
   }
 }
 

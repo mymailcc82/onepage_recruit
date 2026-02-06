@@ -8,13 +8,23 @@
   background-size: 24px 24px;
   .news-main-wrap {
     padding: 114px 0 74px;
+    @include media(middle) {
+      padding: 30px 0 30px;
+    }
 
     ul {
       justify-content: space-between;
       margin-bottom: 88px;
+      @include media(middle) {
+        margin-bottom: 40px;
+      }
 
       li {
         width: 23.2%;
+        @include media(mobile) {
+          width: 49%;
+          margin-bottom: 2%;
+        }
 
         span,
         a {
@@ -30,6 +40,11 @@
           letter-spacing: 0.1em;
           color: var(--color-sub);
           width: 100%;
+          @include media(mobile) {
+            height: 50px;
+            font-size: 15px;
+            border: solid 2px var(--color-sub);
+          }
           &:hover {
             cursor: pointer;
           }
@@ -71,6 +86,9 @@
         align-items: center;
         margin-left: 2%;
         margin-bottom: 49px;
+        @include media(mobile) {
+          width: 100%;
+        }
 
         &:nth-child(3n + 1) {
           margin-left: 0;

@@ -1,11 +1,24 @@
-<div class="footer-fixed">
-    <a href="">
-        <p>
-            <i></i>
-            <span>インターン<br>募集中！</span>
-        </p>
-    </a>
-</div>
+<?php if (is_singular('recruit')): ?>
+    <div class="footer-fixed">
+        <a href="<?php echo home_url(); ?>/entry/?occupation=<?php echo urlencode(get_the_title()); ?>">
+            <p>
+                <i></i>
+                <span>この職種に<br>応募する</span>
+            </p>
+        </a>
+    </div>
+<?php elseif (is_page("entry") || is_page("intern") || is_page("contact") || is_page("confirm") || is_page("thanks")): ?>
+<?php else: ?>
+    <div class="footer-fixed">
+        <a href="<?php echo home_url(); ?>/intern/">
+            <p>
+                <i></i>
+                <span>インターン<br>募集中！</span>
+            </p>
+        </a>
+    </div>
+<?php endif; ?>
+
 
 <footer class="footer relative z-20">
     <div class="content-width">
@@ -14,11 +27,10 @@
                 <h2 class="max-w-[256px] mb-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/com/logo.png" alt="ロゴ"></h2>
                 <h3 class="mb-6 text-base font-bold color-main">-新卒採用 2026-</h3>
                 <p class="text-sm leading-7 mb-6">
-                    〒460-0002<br>
-                    愛知県名古屋市中区丸の内2丁目14-16<br>
-                    河合ビル6F<br>
-                    MAIL：contact@onepage.co.jp<br>
-                    TEL：052-223-0200
+                    〒<?php echo esc_html(get_option('onepage_company_zipcode', '')); ?><br>
+                    <?php echo esc_html(get_option('onepage_company_address', '')); ?><br>
+                    MAIL：<?php echo esc_html(get_option('onepage_company_email', '')); ?><br>
+                    TEL：<?php echo esc_html(get_option('onepage_company_tel', '')); ?>
                 </p>
                 <?php $corporate_url = get_option('onepage_footer_corporate_url', ''); ?>
                 <?php if ($corporate_url): ?>
@@ -58,21 +70,21 @@
                     <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
                 </ul>
                 <ul class="hidden-mobile">
-                    <li><a href="">お知らせ・ブログ</a></li>
-                    <li><a href="">インターン情報</a></li>
-                    <li><a href="">募集要項</a></li>
-                    <li><a href="">エントリー</a></li>
-                    <li><a href="">お問い合わせ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/archive/">お知らせ・ブログ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/intern/">インターン情報</a></li>
+                    <li><a href="<?php echo home_url(); ?>/recruit/">募集要項</a></li>
+                    <li><a href="<?php echo home_url(); ?>/entry/">エントリー</a></li>
+                    <li><a href="<?php echo home_url(); ?>/contact/">お問い合わせ</a></li>
                 </ul>
                 <ol>
                     <li>
-                        <a href="">個人情報保護方針</a>
+                        <a href="<?php echo home_url(); ?>/privacy/">個人情報保護方針</a>
                     </li>
                     <li>
-                        <a href="">Cookieポリシー</a>
+                        <a href="<?php echo home_url(); ?>/cookie/">Cookieポリシー</a>
                     </li>
                     <li>
-                        <a href="">サイトマップ </a>
+                        <a href="<?php echo home_url(); ?>/sitemap/">サイトマップ </a>
                     </li>
                 </ol>
             </div>
@@ -198,6 +210,15 @@
             css: [
                 'https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.css',
             ],
+            plugins: ['AmpPlugin'],
+            AmpPlugin: {
+                dropdown: {
+                    months: true,
+                    years: true,
+                    minYear: 1920,
+                    maxYear: new Date().getFullYear(),
+                },
+            },
             setup(calendar) {
                 calendar.on('view', () => {
                     // Processing when calendar is displayed.
@@ -208,16 +229,15 @@
                 })
 
                 calendar.on('select', (event) => {
-                    // Processing when selected.
                     const selectedDate = event.detail.date.format('YYYY-MM-DD');
-                    //const selectedDate = calendar.date.format('YYYY-MM-DD');
-                    // .start-dateのvalueに選択された日付をセット
                     document.querySelector('.start-date').value = selectedDate;
-
                 })
             }
         });
     }
+
+
+
 
     document.addEventListener('DOMContentLoaded', () => {
         const slideCount = document.querySelectorAll('.gallery-swiper .swiper-slide').length;

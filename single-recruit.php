@@ -17,20 +17,29 @@
     </div>
 
     <article class="recruit-article">
-        <div class="content-width">
+        <div class="content-width content-width--mobile-full">
             <div class="recruit-article-wrap">
                 <ul>
-                    <li>#制作</li>
-                    <li>#制作</li>
+                    <?php
+                    $recruit_tags = get_field('recruit_tags');
+                    if ($recruit_tags):
+                        foreach ($recruit_tags as $tag):
+                    ?>
+                            <li>#<?php echo esc_html($tag); ?></li>
+                    <?php
+                        endforeach;
+                    endif;
+                    ?>
                 </ul>
-                <h1 class="mb-2">Webディレクター</h1>
-                <p class="desc mb-6">
-                    あなたの企画・提案が、企業の未来を変える。
-                    WEBディレクターとしてサイト制作の進行管理だけでなく、課題発見から解決の提案まで一貫して携われる環境です。
-                    採用サイトやブランドサイト、パンフレットやロゴなど、多彩な案件に挑戦可能。常に新しい表現・新しい解決策を追求する方にとって、成長のチャンスが広がっています。
-                </p>
+                <h1 class="mb-2"><?php the_title(); ?></h1>
+                <div class="desc mb-6">
+                    <?php the_content(); ?>
+                </div>
                 <div class="main-img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit-img.jpg" alt="募集要項画像1">
+                    <?php if (has_post_thumbnail()): ?>
+                        <img src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
+                    <?php else: ?>
+                    <?php endif; ?>
                 </div>
 
                 <div class="main-tab-btn">
@@ -41,63 +50,64 @@
 
                 </div>
                 <div class="main-tab-content">
-                    <div class="main-tab-content-01 ">
+                    <div class="main-tab-content-01 active">
                         <h2><span>募集要項</span></h2>
                         <div class="main-tab-content-dl">
-                            <dl>
-                                <dt>
-                                    職種
-                                </dt>
-                                <dd>
-                                    企業サイト・採用サイトなどのWEB制作ディレクター
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>雇用形態</dt>
-                                <dd>
-                                    正社員<br><br>
-                                    正社員（試用期間：3ヶ月）<br>
-                                    ◎試用期間中の給与・待遇は変わりません。
-                                </dd>
-                            </dl>
+                            <?php
+                            $details_loop = get_field('details_loop');
+                            if ($details_loop):
+                                foreach ($details_loop as $detail):
+                            ?>
+                                    <dl>
+                                        <dt>
+                                            <?php echo nl2br($detail["title"]); ?>
+                                        </dt>
+                                        <dd>
+                                            <?php echo nl2br($detail["content"]); ?>
+                                        </dd>
+                                    </dl>
+                            <?php
+                                endforeach;
+                            endif;
+                            ?>
                         </div>
 
                     </div>
-                    <div class="main-tab-content-02 active">
+                    <div class="main-tab-content-02 ">
                         <h2><span>1日のスケジュール例</span></h2>
 
                         <div class="main-tab-content-table">
-                            <dl>
-                                <dt><span>9:30</span></dt>
-                                <dd>
-                                    <h3>出社・メール確認</h3>
-                                    <p>
-                                        月曜日のみ朝礼があり、それ以外の曜日は出社後すぐに業務に取り掛かります。
-                                    </p>
-                                    <div class="table-img">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit-img.jpg" alt="募集要項画像1">
-                                    </div>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt><span>9:30</span></dt>
-                                <dd>
-                                    <h3>出社・メール確認</h3>
-                                    <p>
-                                        月曜日のみ朝礼があり、それ以外の曜日は出社後すぐに業務に取り掛かります。
-                                    </p>
-                                    <div class="table-img">
-                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit-img.jpg" alt="募集要項画像1">
-                                    </div>
-                                </dd>
-                            </dl>
+                            <?php
+                            $schedule_loop = get_field('schedule_loop');
+                            if ($schedule_loop):
+                                foreach ($schedule_loop as $detail):
+                            ?>
+                                    <dl>
+                                        <dt><span><?php echo nl2br($detail["time"]); ?></span></dt>
+                                        <dd>
+                                            <h3><?php echo nl2br($detail["title"]); ?></h3>
+                                            <p>
+                                                <?php echo nl2br($detail["content"]); ?>
+                                            </p>
+                                            <?php if ($detail["img"]): ?>
+                                                <div class="table-img">
+                                                    <img src="<?php echo $detail["img"]; ?>" alt="募集要項画像1">
+                                                </div>
+                                            <?php endif; ?>
+                                        </dd>
+                                    </dl>
+                            <?php
+                                endforeach;
+                            endif;
+                            ?>
+
                         </div>
                     </div>
                 </div>
 
                 <div class="main-btn mt-10">
                     <div class="aside-wrap-col-full">
-                        <a href="">
+                        <a href="<?php echo home_url(); ?>/entry/?occupation=<?php echo urlencode(get_the_title()); ?>">
                             <span>ENTRY</span>
                             <h3>この職種に応募する！</h3>
                             <i></i>
@@ -105,11 +115,11 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+        <div class="content-width">
             <div class="com-btn-black max-w-[399px] mx-auto mt-10 mb-16">
-                <a href="<?php echo home_url(); ?>/entry/">一覧に戻る<i></i></a>
+                <a href="<?php echo home_url(); ?>/recruit/">一覧に戻る<i></i></a>
             </div>
-
         </div>
 
 

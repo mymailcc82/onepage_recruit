@@ -9,21 +9,21 @@
         </div>
         <div class="aside-wrap">
             <div class="aside-wrap-col">
-                <a href="">
+                <a href="<?php echo home_url(); ?>/intern/">
                     <span>INTERN</span>
                     <h3>インターン情報</h3>
                     <i></i>
                 </a>
             </div>
             <div class="aside-wrap-col">
-                <a href="">
+                <a href="<?php echo home_url(); ?>/guardian/">
                     <span>FOR PARENTS <br>AND GUARDIANS</span>
                     <h3>保護者の方へ</h3>
                     <i></i>
                 </a>
             </div>
             <div class="aside-wrap-col-full">
-                <a href="">
+                <a href="<?php echo home_url(); ?>/entry/">
                     <span>ENTRY</span>
                     <h3>募集要項 / エントリー</h3>
                     <i></i>

@@ -44,10 +44,10 @@
             </ul>
             <ol class="flex ml-4 hidden-middle">
                 <li class="mr-2">
-                    <a class="btn-intern px-10 py-2 rounded font-bold text-xl" href="">INTERN</a>
+                    <a class="btn-intern px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/intern/">INTERN</a>
                 </li>
                 <li>
-                    <a class="btn-entry px-10 py-2 rounded font-bold text-xl" href="">ENTRY</a>
+                    <a class="btn-entry px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/entry/">ENTRY</a>
                 </li>
             </ol>
             <button class="header-button">
@@ -64,10 +64,10 @@
         <div class="content-width">
             <ol class="flex justify-center mb-8">
                 <li class="">
-                    <a class="color-main bg-white px-10 py-2 rounded font-bold text-xl" href="">INTERN</a>
+                    <a class="color-main bg-white px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/intern/">INTERN</a>
                 </li>
                 <li>
-                    <a class="bg-sub text-white px-10 py-2 rounded font-bold text-xl" href="">ENTRY</a>
+                    <a class="bg-sub text-white px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/entry/">ENTRY</a>
                 </li>
             </ol>
             <ul class="">

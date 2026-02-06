@@ -1,3 +1,6 @@
+<?php
+$company_name = get_option('onepage_company_name', '');
+?>
 <?php get_header(); ?>
 <main class="page-main else">
     <div class="page-visual-simple bg-sub">
@@ -19,7 +22,7 @@
         <div class="content-width-small">
 
             <p class="mb-4">
-                ワンページ株式会社（以下「当社」といいます）は、当社の採用サイト（以下「当サイト」といいます）において、ユーザーの利便性向上およびサイトの改善のためにクッキー（Cookie）を使用しています。本ポリシーでは、当サイトにおけるクッキーの利用について説明します。
+                <?php echo esc_html($company_name); ?>（以下「当社」といいます）は、当社の採用サイト（以下「当サイト」といいます）において、ユーザーの利便性向上およびサイトの改善のためにクッキー（Cookie）を使用しています。本ポリシーでは、当サイトにおけるクッキーの利用について説明します。
             </p>
             <ul>
                 <li>

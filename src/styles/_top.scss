@@ -1,5 +1,7 @@
 @use './tokens' as *;
-
+.home {
+  padding-top: 0px !important;
+}
 .top {
   .top-visual {
     overflow: hidden;
@@ -622,6 +624,10 @@
       .swiper-button-next,
       .swiper-button-prev {
         top: 40%;
+        display: none;
+        @include media(mobile) {
+          display: block;
+        }
       }
       .swiper-button-next::after,
       .swiper-button-prev::after {
@@ -645,6 +651,9 @@
     }
     .sec04-wrap {
       //gap: 2%;
+      @include media(sm) {
+        justify-content: space-between;
+      }
       .sec04-wrap-col {
         width: 32%;
         position: relative;

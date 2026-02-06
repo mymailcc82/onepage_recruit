@@ -1,1 +1,0 @@
-const e=document.querySelector(".header-button"),t=document.querySelector("nav");e.addEventListener("click",()=>{e.classList.toggle("active"),t.classList.toggle("open"),document.querySelector(".drawer").classList.toggle("drawer-active")});

@@ -1,4 +1,7 @@
 <?php get_header(); ?>
+<?php
+$company_name = get_option('onepage_company_name', '');
+?>
 <main class="page-main else">
     <div class="page-visual-simple bg-sub">
         <div class="content-width">
@@ -19,7 +22,7 @@
         <div class="content-width-small">
 
             <p class="mb-4">
-                ワンページ株式会社（以下「当社」といいます）は、当社の採用活動において取得する応募者の個人情報について、以下の方針に基づき適切に取り扱い、保護に努めます。
+                <?php echo esc_html($company_name); ?>（以下「当社」といいます）は、当社の採用活動において取得する応募者の個人情報について、以下の方針に基づき適切に取り扱い、保護に努めます。
             </p>
             <ul>
                 <li>
@@ -96,11 +99,11 @@
                     <p>
                         個人情報の取扱いに関するお問い合わせは、下記までご連絡ください。<br><br>
                         【個人情報に関するお問い合わせ窓口】<br>
-                        ワンページ株式会社<br>
-                        〒460-0002<br>
-                        愛知県名古屋市中区丸の内2丁目14-16 河合ビル6F<br>
-                        MAIL：contact@onepage.co.jp<br>
-                        TEL：052-223-0200
+                        <?php echo esc_html(get_option('onepage_company_name', '')); ?><br>
+                        〒<?php echo esc_html(get_option('onepage_company_zipcode', '')); ?><br>
+                        <?php echo esc_html(get_option('onepage_company_address', '')); ?><br>
+                        MAIL：<?php echo esc_html(get_option('onepage_company_email', '')); ?><br>
+                        TEL：<?php echo esc_html(get_option('onepage_company_tel', '')); ?>
                     </p>
                 </li>
             </ul>

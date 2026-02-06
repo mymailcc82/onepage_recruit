@@ -1,10 +1,14 @@
 <?php get_header(); ?>
+<?php
+$check_flg = false;
+$check_flg = get_field('check_flg');
+?>
 <main class="page-main recruit-main">
     <div class="page-visual-simple bg-sub">
         <div class="content-width">
             <div class="page-visual-simple-title">
                 <span class="text-white">INTERN</span>
-                <h1 class="h1-small">インターン</h1>
+                <h1 class="h1-small"><?php the_title(); ?></h1>
             </div>
         </div>
         <div class="bg-clip-sub bg-main"></div>
@@ -12,62 +16,69 @@
     <div class="breadcrumb">
         <ul>
             <li><a href="<?php echo home_url(); ?>">TOP</a></li>
-            <li><span>インターン</span></li>
+            <li><span><?php the_title(); ?></span></li>
         </ul>
     </div>
 
     <article class="recruit-article">
-        <div class="content-width">
-            <div class="recruit-article-wrap">
-                <h1 class="mb-2">インターン募集中！</h1>
-                <p class="desc mb-6">
-                    ワンページでは、制作・営業・カスタマーなど、各分野のインターンを実施しています。
-                    「どの仕事が自分に合っているかわからない」そんな方でも大丈夫。実際の業務に触れながら、仕事の違いやチームの雰囲気を体験できます。未経験の方も歓迎。社員がサポートしながら進めるので、初めてのインターンでも安心して参加できます。
-                </p>
-                <div class="main-img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/page/recruit-img.jpg" alt="募集要項画像1">
-                </div>
+        <div class="content-width content-width--mobile-full">
+            <?php if ($check_flg): ?>
+                <?php $info_group = get_field('info_group'); ?>
 
-                <div class="main-tab-content">
-                    <div class="main-tab-content-01 active">
-                        <h2><span>募集要項</span></h2>
-                        <div class="main-tab-content-dl">
-                            <dl>
-                                <dt>
-                                    職種
-                                </dt>
-                                <dd>
-                                    企業サイト・採用サイトなどのWEB制作ディレクター
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>雇用形態</dt>
-                                <dd>
-                                    正社員<br><br>
-                                    正社員（試用期間：3ヶ月）<br>
-                                    ◎試用期間中の給与・待遇は変わりません。
-                                </dd>
-                            </dl>
+                <div class="recruit-article-wrap">
+                    <?php if ($info_group): ?>
+                        <h1 class="mb-2"><?php echo nl2br($info_group["title"]); ?></h1>
+                        <p class="desc mb-6">
+                            <?php echo nl2br($info_group["content"]); ?>
+                        </p>
+                        <div class="main-img">
+                            <img src="<?php echo $info_group["img"] ?>" alt="インターン募集画像">
                         </div>
+                    <?php endif; ?>
 
+
+                    <div class="main-tab-content">
+                        <div class="main-tab-content-01 active">
+                            <h2><span>募集要項</span></h2>
+                            <div class="main-tab-content-dl">
+                                <?php
+                                $details_loop = get_field('details_loop');
+                                if ($details_loop):
+                                    foreach ($details_loop as $detail):
+                                ?>
+                                        <dl>
+                                            <dt>
+                                                <?php echo $detail["title"]; ?>
+                                            </dt>
+                                            <dd>
+                                                <?php echo nl2br($detail["content"]); ?>
+                                            </dd>
+                                        </dl>
+                                <?php
+                                    endforeach;
+                                endif;
+                                ?>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="main-btn mt-10">
+                        <div class="aside-wrap-col-full">
+                            <a href="<?php echo home_url(); ?>/entry/">
+                                <span>ENTRY</span>
+                                <h3>インターンに申し込む！</h3>
+                                <i></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-
-                <div class="main-btn mt-10">
-                    <div class="aside-wrap-col-full">
-                        <a href="">
-                            <span>ENTRY</span>
-                            <h3>この職種に応募する！</h3>
-                            <i></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="com-btn-black max-w-[399px] mx-auto mt-10 mb-16">
-                <a href="<?php echo home_url(); ?>/entry/">一覧に戻る<i></i></a>
-            </div>
-
+            <?php else: ?>
+                <h2 class="text-center font-bold text-base sm:text-2xl leading-relaxed">
+                    現在募集しておりません。<br>
+                    募集開始まで今しばらくお待ちください。
+                </h2>
+            <?php endif; ?>
         </div>
 
 

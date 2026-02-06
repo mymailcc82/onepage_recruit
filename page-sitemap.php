@@ -19,22 +19,22 @@
         <div class="content-width-xs">
             <div class="flex flex-wrap sitemap-wrap">
                 <ul>
-                    <li><a href="">トップ</a></li>
-                    <li><a href="">どんな会社？</a></li>
-                    <li><a href="">仕事紹介</a></li>
-                    <li><a href="">先輩インタビュー</a></li>
-                    <li><a href="">保護者の方へ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/">トップ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
+                    <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
+                    <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
+                    <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
                 </ul>
                 <ul>
-                    <li><a href="">お知らせ・ブログ</a></li>
-                    <li><a href="">インターン情報</a></li>
-                    <li><a href="">募集要項</a></li>
-                    <li><a href="">エントリー</a></li>
-                    <li><a href="">お問い合わせ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/archive/">お知らせ・ブログ</a></li>
+                    <li><a href="<?php echo home_url(); ?>/intern/">インターン情報</a></li>
+                    <li><a href="<?php echo home_url(); ?>/recruit/">募集要項</a></li>
+                    <li><a href="<?php echo home_url(); ?>/entry/">エントリー</a></li>
+                    <li><a href="<?php echo home_url(); ?>/contact/">お問い合わせ</a></li>
                 </ul>
                 <ul>
-                    <li><a href="">個人情報保護方針</a></li>
-                    <li><a href="">Cookieポリシー </a></li>
+                    <li><a href="<?php echo home_url(); ?>/privacy/">個人情報保護方針</a></li>
+                    <li><a href="<?php echo home_url(); ?>/cookie/">Cookieポリシー</a></li>
                 </ul>
             </div>
 

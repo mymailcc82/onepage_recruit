@@ -1,4 +1,13 @@
 @use './tokens' as *;
+.entry {
+  .contact-wrap-right .contact-wrap-right-main dl dt small {
+    @include media(mobile) {
+      display: block;
+      margin: 5px 0px 0px !important;
+      font-size: 12px !important ;
+    }
+  }
+}
 .contact {
   padding-bottom: 240px;
   @include media(middle) {
@@ -19,6 +28,9 @@
     box-shadow: 0px 3px 6px rgba($color: #464646, $alpha: 0.16);
     border-radius: 10px;
     padding: 80px 7.5%;
+    @include media(mobile) {
+      width: 100%;
+    }
     .contact-wrap-left {
       width: 100%;
       @include media(middle) {
@@ -42,6 +54,9 @@
           left: 10px;
           top: 31.5px;
           z-index: -1;
+          @include media(mobile) {
+            left: 0px;
+          }
         }
         .active {
           span {
@@ -60,6 +75,10 @@
           &:nth-child(3) {
             &:after {
               left: calc(100% - 13px);
+              @include media(mobile) {
+                left: inherit;
+                right: 0px;
+              }
             }
           }
         }
@@ -108,11 +127,19 @@
               left: calc(100% - 0px);
               transform: translateX(-50%);
               content: '3' !important;
+              @include media(mobile) {
+                left: inherit;
+                right: 0px;
+                transform: translateX(0%);
+              }
             }
             span {
               text-align: right;
               position: relative;
               right: -30px;
+              @include media(mobile) {
+                right: 0px;
+              }
             }
           }
           span {
@@ -133,8 +160,7 @@
         padding-top: 40px;
         line-height: 2;
         @include media(mobile) {
-          text-align: center;
-          color: #000000;
+          text-align: left;
         }
         a {
           font-weight: 600;
@@ -163,7 +189,7 @@
       }
       .mw_wp_form_confirm {
         dl {
-          border-bottom: 1px solid var(--color-main);
+          border-bottom: 1px solid #a3a3a3;
           padding-bottom: 20px;
           span {
             display: none;
@@ -176,6 +202,9 @@
             margin-bottom: 5px !important;
             br {
               display: none;
+            }
+            small {
+              display: none !important;
             }
 
             &.dt-long {
@@ -198,9 +227,15 @@
               //リンク無効
               pointer-events: none;
             }
+            .mw-wp-form_file {
+              color: #000;
+            }
+            .upload-box {
+              border: none !important;
+              padding: 0px !important;
+            }
           }
-
-          small {
+          .text_count {
             display: none !important;
           }
         }
@@ -261,7 +296,7 @@
               background-position: right 0px center;
               display: block;
               background-color: inherit;
-              padding: 20px 15px 20px 0px !important;
+              padding: 20px 25px 20px 0px !important;
               color: #919191;
 
               font-weight: 400;
@@ -270,7 +305,8 @@
               transition: opacity 0.5s;
               @include media(middle) {
                 font-size: 17px;
-                padding-left: 10px;
+                background-size: 14px;
+                padding-left: 20px;
                 margin: 0 auto;
               }
               &:hover {
@@ -413,6 +449,12 @@
               border: 1px solid #898989;
               border-radius: 5px;
             }
+            .birthday-selects {
+              select {
+                width: auto;
+                padding-right: 36px;
+              }
+            }
             textarea {
               width: 100%;
               border-radius: 5px;
@@ -511,10 +553,18 @@
         }
         .subtitle {
           display: flex;
+          flex-wrap: wrap;
           .mwform-radio-field {
+            @include media(mobile) {
+              width: 100%;
+              margin: 0px 0px 10px !important;
+            }
             label {
               display: flex;
               margin-right: 5px;
+              @include media(mobile) {
+                width: 100%;
+              }
               input {
                 width: 15px;
               }
@@ -609,14 +659,14 @@
               width: 30%;
 
               @include media(mobile) {
-                width: 25%;
+                width: 40%;
               }
               select {
                 width: 100%;
 
                 @include media(mobile) {
                   padding-right: 10px;
-                  background-position: right 5px center;
+                  background-position: right 10px center;
                 }
               }
             }
