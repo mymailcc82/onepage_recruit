@@ -34,6 +34,22 @@
         }
       }
     }
+    .btn-intern {
+      background-color: var(--color_header_intern_btn_bg);
+      color: var(--color_header_intern_btn_text);
+      @include media(mobile) {
+        background-color: var(--color_header_intern_btn_text);
+        color: var(--color_header_intern_btn_bg);
+      }
+    }
+    .btn-entry {
+      background-color: var(--color_header_entry_btn_bg);
+      color: var(--color_header_entry_btn_text);
+      @include media(mobile) {
+        background-color: #fff;
+        color: var(--color-main);
+      }
+    }
   }
   .header-button {
     width: 44px;

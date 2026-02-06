@@ -604,7 +604,9 @@
       margin: 0 auto;
       position: relative;
       padding-bottom: 60px;
+      overflow: visible;
       @include media(middle) {
+        overflow: hidden;
         padding: 0 5% 0px;
       }
       @include media(mobile) {
@@ -648,6 +650,17 @@
         position: relative;
         @include media(mobile) {
           width: 100%;
+        }
+        a {
+          display: block;
+          &.active {
+            &:hover {
+              opacity: 1;
+              .sec04-wrap-colp-img-img {
+                opacity: 0;
+              }
+            }
+          }
         }
         &:nth-child(1) {
           i {
@@ -713,6 +726,24 @@
             left: 15px;
             top: 15px;
             z-index: -1;
+          }
+          .sec04-wrap-colp-img-img {
+            opacity: 1;
+            transition: all 0.3s ease;
+          }
+          .sec04-wrap-colp-img-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
           }
           img {
             border-radius: 10px;

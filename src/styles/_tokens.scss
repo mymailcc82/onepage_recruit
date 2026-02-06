@@ -147,6 +147,14 @@ $breakpoints: (
   --color-accent: #ffffff;
   --color-black: #000000;
 
+  --color_header_entry_btn_bg: #57c3d1;
+  --color_header_entry_btn_text: #ffffff;
+  --color_header_intern_btn_bg: #173ca0;
+  --color_header_intern_btn_text: #ffffff;
+  --color_fixed_intern_btn_bg: #57c3d1;
+  --color_fixed_intern_btn_text: #ffffff;
+  --color_recruit_bg: #173ca0;
+
   --font-size-title: font-clamp(20, 24, 1200, 30);
   --font-size-subtitle: font-clamp(18, 22, 1200, 28);
   --font-size-desc: font-clamp(16, 20, 1200, 24);

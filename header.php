@@ -11,8 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Jersey+10&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.1/dist/index.umd.min.js"></script>
 
 
@@ -39,15 +39,15 @@
                 <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
                 <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
                 <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">お知らせ・ブログ</a></li>
+                <li><a href="<?php echo home_url(); ?>/archive/">お知らせ・ブログ</a></li>
                 <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
             </ul>
             <ol class="flex ml-4 hidden-middle">
                 <li class="mr-2">
-                    <a class="bg-main text-white px-10 py-2 rounded font-bold text-xl" href="">INTERN</a>
+                    <a class="btn-intern px-10 py-2 rounded font-bold text-xl" href="">INTERN</a>
                 </li>
                 <li>
-                    <a class="bg-sub text-white px-10 py-2 rounded font-bold text-xl" href="">ENTRY</a>
+                    <a class="btn-entry px-10 py-2 rounded font-bold text-xl" href="">ENTRY</a>
                 </li>
             </ol>
             <button class="header-button">
@@ -74,7 +74,7 @@
                 <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
                 <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
                 <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
-                <li><a href="<?php echo home_url(); ?>/about/">お知らせ・ブログ</a></li>
+                <li><a href="<?php echo home_url(); ?>/archive/">お知らせ・ブログ</a></li>
                 <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
             </ul>
         </div>

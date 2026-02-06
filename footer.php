@@ -1,3 +1,12 @@
+<div class="footer-fixed">
+    <a href="">
+        <p>
+            <i></i>
+            <span>インターン<br>募集中！</span>
+        </p>
+    </a>
+</div>
+
 <footer class="footer relative z-20">
     <div class="content-width">
         <div class="footer-wrap">
@@ -11,22 +20,33 @@
                     MAIL：contact@onepage.co.jp<br>
                     TEL：052-223-0200
                 </p>
-                <div class="com-btn-sub com-btn-sub--small max-w-[314px]">
-                    <a href="" class="text-base">コーポレートサイトを見る<i class="target"></i></a>
-                </div>
+                <?php $corporate_url = get_option('onepage_footer_corporate_url', ''); ?>
+                <?php if ($corporate_url): ?>
+                    <div class="com-btn-sub com-btn-sub--small max-w-[314px]">
+                        <a href="<?php echo esc_url($corporate_url); ?>" target="_blank" rel="noopener noreferrer" class="text-base">コーポレートサイトを見る<i class="target"></i></a>
+                    </div>
+                <?php endif; ?>
                 <ul>
-                    <li>
-                        <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-instagram.svg" alt="Facebook"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-x.svg" alt="Facebook"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-facebook.svg" alt="Facebook"></a>
-                    </li>
-                    <li>
-                        <a href=""><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-youtube.svg" alt="Facebook"></a>
-                    </li>
+                    <?php if ($instagram_url = get_option('onepage_footer_instagram_url', '')): ?>
+                        <li>
+                            <a href="<?php echo esc_url($instagram_url); ?>" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-instagram.svg" alt="Instagram"></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($x_url = get_option('onepage_footer_x_url', '')): ?>
+                        <li>
+                            <a href="<?php echo esc_url($x_url); ?>" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-x.svg" alt="X"></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($facebook_url = get_option('onepage_footer_facebook_url', '')): ?>
+                        <li>
+                            <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-facebook.svg" alt="Facebook"></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if ($youtube_url = get_option('onepage_footer_youtube_url', '')): ?>
+                        <li>
+                            <a href="<?php echo esc_url($youtube_url); ?>" target="_blank" rel="noopener noreferrer"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/icon/icon-footer-youtube.svg" alt="YouTube"></a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="footer-wrap-right">

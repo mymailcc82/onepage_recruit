@@ -1,7 +1,11 @@
 @use './tokens' as *;
 
-
 .interview-main {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#efefef 1px, transparent 1px),
+    linear-gradient(90deg, #efefef 1px, transparent 1px);
+  background-size: 24px 24px;
   .interview-sec {
     padding: 45px 0 80px;
 
@@ -10,11 +14,10 @@
     }
 
     .interview-sec-txt {
-
       h2 {
         font-size: 25px;
         font-weight: bold;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         text-align: center;
 
         @include media(middle) {
@@ -36,39 +39,68 @@
         @include media(mobile) {
           width: 100%;
         }
+        a {
+          display: block;
+          &.active {
+            &:hover {
+              opacity: 1;
+              .col-img-img {
+                opacity: 0;
+              }
+            }
+          }
+        }
 
         .col-img {
-          width: 78%;
-          height: 316px;
-          margin: 0 auto 50px;
           position: relative;
-
-          &::before {
-            display: block;
-            content: "";
-            position: absolute;
+          width: 80%;
+          margin: 0 auto 40px;
+          z-index: 10;
+          &:after {
             width: 100%;
             height: 100%;
-            background-color: var(--color-main);
+            content: '';
+            display: block;
             border-radius: 10px;
-            top: 13px;
-            left: 15px;
-            transform: rotate(-6deg);
-            z-index: 4;
-          }
-
-          &::after {
-            display: block;
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
+            overflow: hidden;
             background-color: var(--color-sub);
-            border-radius: 10px;
+            transform: rotate(-7deg);
+            position: absolute;
+            left: -15px;
             top: 0px;
-            left: -14px;
-            transform: rotate(-6deg);
-            z-index: 3;
+            z-index: -2;
+          }
+          &:before {
+            width: 100%;
+            height: 100%;
+            content: '';
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--color-main);
+            transform: rotate(-7deg);
+            position: absolute;
+            left: 40px;
+            top: 15px;
+            z-index: -1;
+          }
+          .col-img-img {
+            opacity: 1;
+            transition: all 0.3s ease;
+          }
+          .col-img-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: -1;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
           }
 
           @include media(middle) {
@@ -106,7 +138,7 @@
           h3 {
             font-size: 20px;
             font-weight: bold;
-            letter-spacing: .1em;
+            letter-spacing: 0.1em;
           }
 
           ul {
@@ -133,7 +165,7 @@
                 &::before {
                   position: absolute;
                   display: block;
-                  content: "";
+                  content: '';
                   width: 1px;
                   height: 13px;
                   background-color: #898989;
@@ -150,9 +182,13 @@
   }
 }
 
-
 /*single*/
 .interview-sub {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#efefef 1px, transparent 1px),
+    linear-gradient(90deg, #efefef 1px, transparent 1px);
+  background-size: 24px 24px;
   .interview-sub-visual {
     align-items: center;
     flex-direction: row-reverse;
@@ -174,7 +210,7 @@
         padding-left: 30px;
         margin: 15px auto;
 
-        @include media(mobile){
+        @include media(mobile) {
           padding-left: 10px;
           margin: 10px auto;
         }
@@ -191,7 +227,6 @@
       -webkit-clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
       clip-path: polygon(0 0, 100% 0%, 100% 0%, 0 100%);
       transform: scaleX(-1) scaleY(-1);
-
     }
 
     .interview-sub-visual-img {
@@ -239,7 +274,7 @@
         h1 {
           font-size: 25px;
           font-weight: 800;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           line-height: 1.6;
           margin-bottom: 20px;
 
@@ -252,7 +287,7 @@
         .name {
           font-size: 20px;
           font-weight: 800;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           margin-bottom: 5px;
           display: block;
         }
@@ -263,7 +298,7 @@
           li {
             font-size: 12px;
             font-weight: 500;
-            letter-spacing: .12em;
+            letter-spacing: 0.12em;
             color: var(--color-main);
             margin-right: 10px;
           }
@@ -275,7 +310,7 @@
           li {
             font-size: 12px;
             font-weight: 500;
-            letter-spacing: .12em;
+            letter-spacing: 0.12em;
             color: var(--color-main);
             margin-right: 10px;
             position: relative;
@@ -287,7 +322,7 @@
               &::before {
                 position: absolute;
                 display: block;
-                content: "";
+                content: '';
                 width: 1px;
                 height: 13px;
                 background-color: #898989;
@@ -302,20 +337,19 @@
         h2 {
           font-size: 20px;
           font-weight: bold;
-          letter-spacing: .08em;
+          letter-spacing: 0.08em;
           font-family: var(--font-en);
         }
 
         p {
           font-size: 15px;
           font-weight: 500;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           line-height: 2;
         }
       }
     }
   }
-
 
   .sec01 {
     padding: 115px 0 153px;
@@ -326,7 +360,6 @@
   }
 
   .interview-sub-col {
-
     .interview-sub-col-txt {
       margin-top: 64px;
 
@@ -341,7 +374,7 @@
       h3 {
         font-size: 25px;
         font-weight: 800;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         margin-bottom: 10px;
         position: relative;
         padding-left: 30px;
@@ -349,13 +382,13 @@
         &::before {
           position: absolute;
           display: block;
-          content: "Q.";
+          content: 'Q.';
           width: 30px;
           height: 30px;
           left: 0;
           font-size: 25px;
           font-weight: 800;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
 
           @include media(mobile) {
             font-size: 20px;
@@ -371,7 +404,7 @@
       p {
         font-size: 15px;
         font-weight: 500;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         line-height: 2;
       }
     }
@@ -423,11 +456,11 @@
       height: 406px;
       margin-top: 93px;
 
-      @include media(middle){
+      @include media(middle) {
         height: 303px;
       }
 
-      @include media(mobile){
+      @include media(mobile) {
         margin-top: 45px;
         height: 143px;
       }
@@ -443,7 +476,7 @@
     .interview-sub-favorite {
       margin-top: 113px;
 
-      @include media(mobile){
+      @include media(mobile) {
         margin-top: 70px;
       }
 
@@ -452,21 +485,37 @@
         flex-wrap: wrap;
         padding: 33px 30px 30px;
         position: relative;
-        background-color: #ffffff;
+        align-items: center;
+        //background-color: #ffffff;
         border-radius: 10px;
-        margin-bottom: 119px;
+        margin-bottom: 0px;
         box-shadow: 0 3px 6px #00000016;
+        z-index: 3;
 
-        &::before {
+        &::after {
           position: absolute;
           display: block;
-          content: "";
+          content: '';
           width: 100%;
           height: 100%;
           background-color: var(--color-sub);
           top: 0;
           left: 0;
           transform: rotate(-5deg);
+          z-index: -3;
+          border-radius: 10px;
+        }
+
+        &::before {
+          position: absolute;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 100%;
+          background-color: #fff;
+          top: 0;
+          left: 0;
+          //transform: rotate(-5deg);
           z-index: -1;
           border-radius: 10px;
         }
@@ -507,14 +556,14 @@
             align-items: center;
             justify-content: center;
             font-size: 25px;
-            letter-spacing: .1em;
+            letter-spacing: 0.1em;
             font-weight: bold;
             color: var(--color-accent);
             transform: rotate(-10deg);
 
             &::before {
               display: block;
-              content: "";
+              content: '';
               position: absolute;
               background-color: var(--color-main);
               width: 30px;
@@ -557,7 +606,7 @@
             h3 {
               font-size: 20px;
               font-weight: bold;
-              letter-spacing: .1em;
+              letter-spacing: 0.1em;
               margin-bottom: 10px;
 
               @include media(middle) {
@@ -568,7 +617,7 @@
             p {
               font-size: 15px;
               font-weight: 400;
-              letter-spacing: .1em;
+              letter-spacing: 0.1em;
               line-height: 1.6;
 
               @include media(middle) {
@@ -580,10 +629,9 @@
           h4 {
             font-size: 15px;
             font-weight: 400;
-            letter-spacing: .1em;
+            letter-spacing: 0.1em;
             line-height: 1.6;
           }
-
         }
 
         .interview-sub-favorite-img {
@@ -615,25 +663,24 @@
       }
 
       .interview-sub-favorite-txt-sp {
-
         h3 {
           font-size: 20px;
           font-weight: bold;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           margin-bottom: 10px;
         }
 
         p {
           font-size: 15px;
           font-weight: 400;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           line-height: 1.6;
         }
 
         h4 {
           font-size: 15px;
           font-weight: 400;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           line-height: 1.6;
         }
       }
@@ -649,9 +696,9 @@
       span {
         font-size: 70px;
         font-weight: 800;
-        letter-spacing: .08em;
+        letter-spacing: 0.08em;
 
-        @include media(middle){
+        @include media(middle) {
           font-size: 40px;
         }
       }
@@ -659,7 +706,7 @@
       h2 {
         font-size: 20px;
         font-weight: bold;
-        letter-spacing: .12em;
+        letter-spacing: 0.12em;
       }
     }
 
@@ -679,38 +726,68 @@
           width: 100%;
         }
 
-        .col-img {
-          width: 78%;
-          height: 316px;
-          margin: 0 auto 50px;
-          position: relative;
-
-          &::before {
-            display: block;
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: var(--color-main);
-            border-radius: 10px;
-            top: 13px;
-            left: 15px;
-            transform: rotate(-6deg);
-            z-index: 4;
+        a {
+          display: block;
+          &.active {
+            &:hover {
+              opacity: 1;
+              .col-img-img {
+                opacity: 0;
+              }
+            }
           }
+        }
 
-          &::after {
+        .col-img {
+          position: relative;
+          width: 80%;
+          margin: 0 auto 40px;
+          z-index: 10;
+          &:after {
+            width: 100%;
+            height: 100%;
+            content: '';
             display: block;
-            content: "";
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--color-sub);
+            transform: rotate(-7deg);
+            position: absolute;
+            left: -15px;
+            top: 0px;
+            z-index: -2;
+          }
+          &:before {
+            width: 100%;
+            height: 100%;
+            content: '';
+            display: block;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: var(--color-main);
+            transform: rotate(-7deg);
+            position: absolute;
+            left: 40px;
+            top: 15px;
+            z-index: -1;
+          }
+          .col-img-img {
+            opacity: 1;
+            transition: all 0.3s ease;
+          }
+          .col-img-bg {
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: var(--color-sub);
-            border-radius: 10px;
             top: 0px;
-            left: -14px;
-            transform: rotate(-6deg);
-            z-index: 3;
+            left: 0px;
+            z-index: -1;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+            }
           }
 
           @include media(middle) {
@@ -748,7 +825,7 @@
           h3 {
             font-size: 20px;
             font-weight: bold;
-            letter-spacing: .1em;
+            letter-spacing: 0.1em;
           }
 
           ul {
@@ -775,7 +852,7 @@
                 &::before {
                   position: absolute;
                   display: block;
-                  content: "";
+                  content: '';
                   width: 1px;
                   height: 13px;
                   background-color: #898989;

@@ -1,0 +1,192 @@
+@use './tokens' as *;
+
+.single-news {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#efefef 1px, transparent 1px),
+    linear-gradient(90deg, #efefef 1px, transparent 1px);
+  background-size: 24px 24px;
+  padding-bottom: 80px;
+
+  .news-wrap {
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1175px;
+    margin: 0 auto;
+    .news-wrap-left {
+      width: 66%;
+      padding: 45px 50px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+      @include media(middle) {
+        width: 100%;
+        padding: 30px 20px;
+      }
+
+      .article {
+        .info {
+          display: flex;
+          align-items: center;
+          margin-bottom: 10px;
+          ul {
+            display: flex;
+            li {
+              margin-right: 10px;
+              a {
+                display: block;
+                border-radius: 11px;
+                background-color: #898989;
+                color: #fff;
+                font-size: 12px;
+                padding: 1px 10px;
+              }
+            }
+          }
+          time {
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            color: #898989;
+          }
+        }
+        h1 {
+          font-size: 20px;
+          font-weight: bold;
+        }
+        .thumb {
+          margin-top: 20px;
+          img {
+            border-radius: 10px;
+          }
+        }
+        .content {
+          margin-top: 20px;
+          margin-bottom: 60px;
+          #ez-toc-container {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #000;
+            padding: 30px;
+            margin-bottom: 30px;
+            .ez-toc-title {
+              font-size: 15px;
+              font-weight: bold;
+              margin-bottom: 10px;
+            }
+            ul,
+            ol {
+              li {
+                a {
+                  font-size: 15px;
+                  font-weight: 500;
+                  margin-bottom: 5px;
+                  display: inline-block;
+                  &:hover {
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+          }
+          div,
+          p,
+          span,
+          th,
+          td,
+          li,
+          dd,
+          dt {
+            font-size: 15px;
+            line-height: 2;
+            font-weight: 500;
+          }
+          h1,
+          h2,
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-weight: bold;
+            font-size: 20px;
+            border-bottom: 2px solid #000;
+            border-top: 2px solid #000;
+            padding: 15px 0px;
+            margin: 20px 0px;
+          }
+          p {
+            margin-bottom: 30px;
+          }
+          a {
+            color: var(--color-main);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .news-wrap-right {
+      width: 29%;
+      @include media(mobile) {
+        width: 100%;
+        margin-top: 40px;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      ul {
+        list-style: none;
+        li {
+          list-style: none;
+          margin-bottom: 40px;
+          &:last-child {
+            margin-bottom: 0px;
+          }
+          a {
+            display: block;
+            .thumb {
+              max-height: 214px;
+              overflow: hidden;
+              margin-bottom: 10px;
+              border-radius: 10px;
+              width: 100%;
+              img {
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+                object-position: center;
+              }
+            }
+            .info {
+              display: flex;
+              margin-bottom: 10px;
+              align-items: center;
+              span {
+                display: block;
+                border-radius: 11px;
+                background-color: #898989;
+                color: #fff;
+                font-size: 12px;
+                padding: 1px 10px;
+                margin-right: 10px;
+              }
+              time {
+                font-size: 12px;
+                letter-spacing: 0.12em;
+                color: #898989;
+              }
+            }
+            h4 {
+              font-size: 14px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

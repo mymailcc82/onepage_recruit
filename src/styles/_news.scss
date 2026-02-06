@@ -1,6 +1,11 @@
 @use './tokens' as *;
 
 .news-main {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(#efefef 1px, transparent 1px),
+    linear-gradient(90deg, #efefef 1px, transparent 1px);
+  background-size: 24px 24px;
   .news-main-wrap {
     padding: 114px 0 74px;
 
@@ -10,33 +15,33 @@
 
       li {
         width: 23.2%;
-        height: 81px;
-        border: solid 3px var(--color-sub);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        background-color: #fff;
 
-        &:hover{
-          cursor: pointer;
-        }
-
-        span {
+        span,
+        a {
+          height: 81px;
+          border: solid 3px var(--color-sub);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 5px;
+          background-color: #fff;
           font-size: 20px;
           font-weight: bold;
-          letter-spacing: .1em;
+          letter-spacing: 0.1em;
           color: var(--color-sub);
+          width: 100%;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 
       .active {
-        background-color: var(--color-sub) !important;
-
-        span {
+        span,
+        a {
+          background-color: var(--color-sub) !important;
           color: #ffffff !important;
         }
-
       }
     }
 
@@ -47,14 +52,14 @@
       h3 {
         font-size: 20px;
         font-weight: bold;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         margin-right: 25px;
       }
 
       span {
         font-size: 20px;
         font-weight: bold;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
       }
     }
 
@@ -69,6 +74,9 @@
 
         &:nth-child(3n + 1) {
           margin-left: 0;
+        }
+        a {
+          display: block;
         }
 
         .news-main-list-wrap-img {
@@ -90,7 +98,7 @@
           background-color: #707070;
           font-size: 12px;
           font-weight: 500;
-          letter-spacing: .12em;
+          letter-spacing: 0.12em;
           color: #fff;
           border-radius: 11px;
           margin-right: 10px;
@@ -99,18 +107,17 @@
         time {
           font-size: 12px;
           font-weight: 500;
-          letter-spacing: .12em;
+          letter-spacing: 0.12em;
           color: #707070;
         }
 
         h3 {
           font-size: 14px;
           font-weight: bold;
-          letter-spacing: .12em;
+          letter-spacing: 0.12em;
           margin-top: 13px;
         }
       }
     }
-
   }
 }

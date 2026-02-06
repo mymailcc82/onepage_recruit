@@ -2,77 +2,68 @@
 <main class="job">
     <div class="page-visual">
         <div class="bg-clip-main bg-main"></div>
-        <div class="page-visual-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/company/company-visual.jpg" alt="どんな会社？"></div>
+        <div class="page-visual-img">
+            <?php
+            $img_main = get_field('main_img'); ?>
+            <?php if ($img_main): ?>
+                <img src="<?php echo esc_url($img_main); ?>" alt="">
+            <?php else: ?>
+            <?php endif; ?>
+
+        </div>
+
         <div class="page-visual-title">
             <span class="font-en">ABOUT JOB</span>
-            <h1>仕事紹介</h1>
+            <h1><?php the_title(); ?></h1>
         </div>
         <div class="bg-clip-sub bg-sub"></div>
     </div>
     <div class="breadcrumb">
         <ul>
             <li><a href="<?php echo home_url(); ?>">TOP</a></li>
-            <li><span>仕事紹介</span></li>
+            <li><span><?php the_title(); ?></span></li>
         </ul>
     </div>
     <section class="sec01">
         <div class="content-width">
             <div class="sec01-txt">
-                <h4>ワンページのお仕事をご紹介します！</h4>
-                <p>
-                    ワンページでは、企画・デザイン・制作・マーケティング・採用支援まで、幅広い領域で価値を生み出す仕事に携わることができます。あなたの得意なことや興味を活かしながら挑戦してみませんか？
-                </p>
+                <?php the_content(); ?>
             </div>
 
             <div class="sec01-list">
-                <div class="sec01-list-wrap sec01-list-wrap-right flex flex-wrap">
-                    <div class="sec01-list-wrap-img hidden-mobile"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/job/img01.jpg" alt="制作部門"></div>
-                    <div class="sec01-list-wrap-txt">
-                        <div class="sec01-list-wrap-txt-col">
-                            <h2 class="color-main">制作部門</h2>
-                            <div class="sec01-list-wrap-img hidden-sm"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/job/img01.jpg" alt="制作部門"></div>
-                            <p>
-                                あなたの企画・提案が、企業の未来を変える。WEBディレクターとしてサイト制作の進行管理だけでなく、課題発見から解決の提案まで一貫して携われる環境です。あなたの企画・提案が、企業の未来を変える。WEBディレクターとしてサイト制作の進行管理だけでなく、課題発見から解決の提案まで一貫して携われる環境です。
-                            </p>
+                <?php
+                $job = get_field('job');
+                ?>
+                <?php if (!$job) $job = array(); ?>
+                <?php foreach ($job as $job_item): ?>
+                    <?php
+                    $class = 'sec01-list-wrap-left';
+                    if ($job_item === reset($job) || $job_item === end($job)) {
+                        $class = 'sec01-list-wrap-right';
+                    }
+                    ?>
+
+                    <div class="sec01-list-wrap <?php echo $class; ?> flex flex-wrap">
+                        <div class="sec01-list-wrap-img hidden-mobile">
+                            <img src="<?php echo $job_item["img"]; ?>" alt="制作部門">
                         </div>
-                        <div class="com-btn-sub">
-                            <a href="<?php echo home_url(); ?>/job-production/">詳しく見る<i></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="sec01-list-wrap sec01-list-wrap-left flex flex-wrap">
-                    <div class="sec01-list-wrap-img hidden-mobile"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/job/img02.jpg" alt="営業部門"></div>
-                    <div class="sec01-list-wrap-txt">
-                        <div class="sec01-list-wrap-txt-col">
-                            <h2 class="color-main">営業部門</h2>
-                            <div class="sec01-list-wrap-img hidden-sm"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/job/img02.jpg" alt="営業部門"></div>
-                            <p>
-                                ワンページ株式会社の営業チームは、お客様の想いや課題を深く理解することから始まります。表に出ていないニーズまでくみ取り、「なぜ必要か」「どう役立てるか」を一緒に整理します。社内の制作チームと連携し、企画の一員として提案から公開後のフォローまで一貫して伴走。ただ売るのではなく、成果につながるパートナーであり続けることを目指しています。
-                            </p>
-                        </div>
-                        <div class="com-btn-sub">
-                            <a href="<?php echo home_url(); ?>/job-business/">詳しく見る<i></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="sec01-list-wrap sec01-list-wrap-right flex flex-wrap">
-                    <div class="sec01-list-wrap-img hidden-mobile"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/job/img03.jpg" alt="総務部門"></div>
-                    <div class="sec01-list-wrap-txt">
-                        <div class="sec01-list-wrap-txt-col">
-                            <h2 class="color-main">総務部門</h2>
-                            <div class="sec01-list-wrap-img hidden-sm"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/job/img03.jpg" alt="総務部門"></div>
-                            <p>
-                                総務部は、社員が安心して働ける環境を整える“会社の土台”となる存在です。労務・備品管理・社内ルール整備など、日々の業務を円滑に進めるためのサポートを担っています。一人ひとりが力を発揮できるよう、細やかな気配りと柔軟な対応で、会社全体を静かに、確実に支えています。
-                            </p>
-                        </div>
-                        <div class="com-btn-sub">
-                            <a href="<?php echo home_url(); ?>/job-general/">詳しく見る<i></i></a>
+                        <div class="sec01-list-wrap-txt">
+                            <div class="sec01-list-wrap-txt-col">
+                                <h2 class="color-main"><?php echo nl2br($job_item["title"]); ?></h2>
+                                <div class="sec01-list-wrap-img hidden-sm"><img src="<?php echo $job_item["img"]; ?>" alt="制作部門"></div>
+                                <p>
+                                    <?php echo nl2br($job_item["content"]); ?>
+                                </p>
+                            </div>
+                            <div class="com-btn-sub">
+                                <a href="<?php echo $job_item["link"]; ?>">詳しく見る<i></i></a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
 </main>
-
+<?php get_template_part('inc/inc-aside'); ?>
 <?php get_footer(); ?>

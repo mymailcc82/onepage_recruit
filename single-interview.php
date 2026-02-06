@@ -1,4 +1,10 @@
 <?php get_header(); ?>
+<?php
+$name_en = '';
+$name_en = get_field('name_en');
+$intervew_main_img = get_field('intervew_main_img');
+$faq_group = get_field('faq_group');
+?>
 <main class="page-main interview-sub">
     <div class="interview-sub-visual flex flex-wrap">
         <div class="clip-sub bg-sub">
@@ -7,26 +13,36 @@
                     <li><a href="<?php echo home_url(); ?>">TOP</a></li>
                     <li>
                     <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
-                    <li><span>K.K</span></li>
+                    <li><span><?php echo esc_html($name_en); ?></span></li>
                 </ul>
             </div>
         </div>
-        <div class="interview-sub-visual-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/visual.jpg" alt=""></div>
+        <div class="interview-sub-visual-img">
+            <?php if ($intervew_main_img): ?>
+                <img src="<?php echo esc_url($intervew_main_img); ?>" alt="">
+            <?php else: ?>
+            <?php endif; ?>
+        </div>
         <div class="interview-sub-visual-txt">
             <div class="interview-sub-visual-txt-wrap">
-                <h1>毎日新しい学びがあり、人の温かさと仕事のやりがいを両立できる職場で働いています。</h1>
-                <span class="name">K.K</span>
+                <h1><?php the_title(); ?></h1>
+                <span class="name"><?php echo esc_html($name_en); ?></span>
                 <ul class="category flex">
-                    <li>#営業</li>
-                    <li>#ITソリューション部</li>
+                    <?php
+                    $categories = get_the_terms(get_the_ID(), 'interview_tag');
+                    if ($categories && !is_wp_error($categories)) :
+                        foreach ($categories as $category) : ?>
+                            <li>#<?php echo esc_html($category->name); ?></li>
+                    <?php endforeach;
+                    endif; ?>
                 </ul>
                 <ul class="day flex">
-                    <li>2025年</li>
-                    <li>中途入社</li>
+                    <li><?php the_field('join_year'); ?></li>
+                    <li><?php the_field('join_method'); ?></li>
                 </ul>
                 <h2 class="color-main">PROFILE</h2>
                 <p>
-                    前職では市役所職員として、市民の皆さまの力になることを目指して仕事をしていました。現在はコンサルタントとして日々成長を実感しながら業務に取り組んでいます。
+                    <?php the_field('profile'); ?>
                 </p>
             </div>
             <div class="clip-main bg-main"></div>
@@ -36,77 +52,58 @@
     <section class="sec01">
         <div class="interview-sub-col">
             <div class="content-width-small">
-                <div class="interview-sub-col-txt">
-                    <h3>入社を決めた理由は？</h3>
-                    <p>
-                        「すべての人の幸せを叶える」という会社の目的に共感したからです。<br>
-                        関わる人みんなが幸せになってほしい。ほかの場所では「綺麗ごと」かもしれませんが、この会社ではみんな本気でそう思っています。そんな社風にとても共感し、入社を決意しました。
-                    </p>
-                </div>
-                <div class="interview-sub-col-txt">
-                    <h3>どんな仕事をしていますか。</h3>
-                    <p>
-                        行政の入札案件を担当しています。公的機関が公告している入札案件を日々チェックし、企画提案書や見積書を作成しています。前職の経験で得た行政の知見に加え、ワンページで磨いた論理的思考と柔軟な発想を活かし、一人でも多くの人の幸せにつながる提案を目指しています。
-                    </p>
-                </div>
-                <div class="interview-sub-col-img-1 flex">
-                    <span class="interview-sub-col-img-1-1"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img03.jpg" alt=""></span>
-                    <span class="interview-sub-col-img-1-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img04.jpg" alt=""></span>
-                </div>
-                <div class="interview-sub-col-txt">
-                    <h3>どんな時にやりがいを感じますか？</h3>
-                    <p>
-                        行政の入札案件を担当しています。公的機関が公告している入札案件を日々チェックし、企画提案書や見積書を作成しています。前職の経験で得た行政の知見に加え、ワンページで磨いた論理的思考と柔軟な発想を活かし、一人でも多くの人の幸せにつながる提案を目指しています。
-                    </p>
-                </div>
-                <div class="interview-sub-col-txt">
-                    <h3>会社の雰囲気は？</h3>
-                    <p>
-                        助け合いと挑戦が共存する、あたたかな職場です。困っている人がいれば自然と手を差し伸べる、思いやりにあふれた雰囲気があります。さらに「やってみたい」という気持ちを応援してくれる風土もあるため、新しいことに挑戦したい方や、自分の価値を高めたい方にとって理想的な環境です。
-                    </p>
-                </div>
-                <div class="interview-sub-col-img-2">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img05.jpg" alt="">
-                </div>
-                <div class="interview-sub-col-txt">
-                    <h3>入社後のギャップはありましたか？</h3>
-                    <p>
-                        この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字
-                    </p>
-                </div>
-                <div class="interview-sub-col-txt">
-                    <h3>今後のビジョンを教えてください。</h3>
-                    <p>
-                        この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字
-                    </p>
-                </div>
-
-                <div class="interview-sub-favorite">
-                    <div class="interview-sub-favorite-wrap">
-                        <span class="hukidashi"><span class="hukidashi-txt">MY Favorite</span></span>
-                        <div class="interview-sub-favorite-txt-pc hidden-mobile">
-                            <div class="interview-sub-favorite-txt-pc-flex">
-                                <h3>昆虫が大好きです！</h3>
-                                <p>
-                                    休日はよく自然公園に行って、昆虫を観察してリフレッシュしています。<br>
-                                    社内にも意外と虫好きの仲間がいて、写真を見せ合って盛り上がることも。<br><br>
-
-                                    もし虫が好きな方がいたら、ぜひ一緒に虫取りに行きましょう！
-                                </p>
-                            </div>
+                <?php if ($faq_group): ?>
+                    <?php foreach ($faq_group as $item): ?>
+                        <div class="interview-sub-col-txt">
+                            <h3><?php echo esc_html($item['question']); ?></h3>
+                            <p>
+                                <?php echo nl2br(esc_html($item['answer'])); ?>
+                            </p>
                         </div>
-                        <div class="interview-sub-favorite-img"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img06.jpg" alt=""></div>
-                    </div>
-                    <div class="interview-sub-favorite-txt-sp hidden-sm">
-                        <h3>昆虫が大好きです！</h3>
-                        <p>
-                            休日はよく自然公園に行って、昆虫を観察してリフレッシュしています。<br>
-                            社内にも意外と虫好きの仲間がいて、写真を見せ合って盛り上がることも。<br><br>
+                        <?php if ($item["img_01"] && $item["img_02"]): ?>
+                            <div class="interview-sub-col-img-1 flex">
+                                <span class="interview-sub-col-img-1-1"><img src="<?php echo esc_url($item['img_01']); ?>" alt=""></span>
+                                <span class="interview-sub-col-img-1-2"><img src="<?php echo esc_url($item['img_02']); ?>" alt=""></span>
+                            </div>
+                        <?php elseif ($item["img_01"] || $item["img_02"]): ?>
+                            <div class="interview-sub-col-img-2">
+                                <?php if ($item["img_01"]): ?>
+                                    <img src="<?php echo esc_url($item['img_01']); ?>" alt="">
+                                <?php elseif ($item["img_02"]): ?>
+                                    <img src="<?php echo esc_url($item['img_02']); ?>" alt="">
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
-                            もし虫が好きな方がいたら、ぜひ一緒に虫取りに行きましょう！
-                        </p>
+                <?php
+                $my_favorite = get_field('my_favorite');
+                ?>
+                <?php if ($my_favorite): ?>
+                    <div class="interview-sub-favorite">
+                        <div class="interview-sub-favorite-wrap">
+                            <span class="hukidashi"><span class="hukidashi-txt">MY Favorite</span></span>
+                            <div class="interview-sub-favorite-txt-pc hidden-mobile">
+                                <div class="interview-sub-favorite-txt-pc-flex">
+                                    <h3><?php echo esc_html($my_favorite['title']); ?></h3>
+                                    <p>
+                                        <?php echo nl2br(esc_html($my_favorite['content'])); ?>
+                                    </p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="interview-sub-favorite-img"><img src="<?php echo esc_url($my_favorite['img']); ?>" alt=""></div>
+                        </div>
+                        <div class="interview-sub-favorite-txt-sp hidden-sm">
+                            <h3><?php echo esc_html($my_favorite['title']); ?></h3>
+                            <p>
+                                <?php echo nl2br(esc_html($my_favorite['content'])); ?>
+                            </p>
+                            </p>
+                        </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
@@ -118,41 +115,63 @@
                 <h2 class="color-sub">他のインタビューを見る</h2>
             </div>
             <div class="interview-sec-list flex flex-wrap">
-                <div class="interview-sec-list-col">
-                    <div class="col-img">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img02.jpg" alt="">
-                    </div>
-                    <div class="col-txt">
-                        <h3>入社後最速で幹部へ！世の中をより良くするために日々挑戦中!</h3>
-                        <ul class="day">
-                            <li>2019年</li>
-                            <li>中途入社</li>
-                        </ul>
-                        <ul class="category">
-                            <li>#営業</li>
-                            <li>#ITソリューション部</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="interview-sec-list-col">
-                    <div class="col-img">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/interview/img02.jpg" alt="">
-                    </div>
-                    <div class="col-txt">
-                        <h3>入社後最速で幹部へ！世の中をより良くするために日々挑戦中!</h3>
-                        <ul class="day">
-                            <li>2019年</li>
-                            <li>中途入社</li>
-                        </ul>
-                        <ul class="category">
-                            <li>#営業</li>
-                            <li>#ITソリューション部</li>
-                        </ul>
-                    </div>
-                </div>
+                <?php $args = array(
+                    'post_type' => 'interview',
+                    'posts_per_page' => 3,
+                    'post__not_in' => array(get_the_ID()),
+                    'orderby' => 'date',
+                    'order' => 'DESC',
+                );
+                $the_query = new WP_Query($args);
+                ?> <?php if ($the_query->have_posts()) : ?>
+                    <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
+                        <div class="interview-sec-list-col">
+                            <?php $hover_img = get_field('hover_img'); ?>
+                            <?php if ($hover_img) {
+                                $active = "active";
+                            } else {
+                                $active = "";
+                            } ?>
+                            <a href="<?php the_permalink(); ?>" class="<?php echo esc_attr($active); ?>">
+                                <div class="col-img">
+                                    <?php if (has_post_thumbnail()) : ?>
+                                        <img src="<?php the_post_thumbnail_url(); ?>" alt="インタビュー画像" class="col-img-img">
+                                    <?php else : ?>
+                                        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/com/noimage.jpg" alt="インタビュー画像">
+                                    <?php endif; ?>
+
+                                    <?php if ($hover_img): ?>
+                                        <div class="col-img-bg">
+                                            <img src="<?php echo esc_url($hover_img); ?>" alt="インタビュー画像ホバー">
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="col-txt">
+                                    <h3><?php the_title(); ?></h3>
+                                    <ul class="day">
+                                        <li><?php the_field('join_year'); ?></li>
+                                        <li><?php the_field('join_method'); ?></li>
+                                    </ul>
+                                    <ul class="category">
+                                        <?php
+                                        $categories = get_the_terms(get_the_ID(), 'interview_tag');
+                                        if ($categories && !is_wp_error($categories)) :
+                                            foreach ($categories as $category) : ?>
+                                                <li>#<?php echo esc_html($category->name); ?></li>
+                                        <?php endforeach;
+                                        endif; ?>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    <?php endwhile; ?>
+                    <?php wp_reset_postdata(); ?>
+                <?php else : ?>
+                    <p>他のインタビュー記事が見つかりませんでした。</p>
+                <?php endif; ?>
             </div>
         </div>
     </section>
 </main>
-
+<?php get_template_part('inc/inc-aside'); ?>
 <?php get_footer(); ?>
