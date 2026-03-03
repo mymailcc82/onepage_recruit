@@ -8,9 +8,13 @@
     @include media(middle) {
       margin-bottom: 5px !important;
       font-size: 12px;
-      padding-bottom: 25px;
+      padding-bottom: 40px;
       text-align: left;
     }
+  }
+  .cn-close-icon:after,
+  .cn-close-icon:before {
+    background-color: #fff;
   }
   #cn-accept-cookie {
     background-color: var(--color-sub) !important;

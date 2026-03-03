@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: お問い合わせ完了
+Template Name: お問い合わせエラー
 */
 ?>
 <?php get_header(); ?>
@@ -10,11 +10,8 @@ Template Name: お問い合わせ完了
     </div>
     <div class="page-content">
         <div class="content-width">
-            <h1 class="text-white">THANK YOU!</h1>
-            <h2 class="text-white mb-4 sm:mb-2">お問い合わせ・お申し込みありがとうございました</h2>
+            <h1 class="text-white">ERROR..</h1>
             <p class="text-white mb-8">
-                受付完了の自動メールを送信しました。<br>
-                お送りいただいた内容を確認後、担当よりご連絡させていただきます。<br>
                 <?php //ショートコード[contact-form-7 id="9d7709b" title="お問い合わせ"]
                 //echo do_shortcode('[contact-form-7 id="9" title="お問い合わせ"]');
                 //echo do_shortcode('[mwform_formkey key="25" html_class="h-adr"]'); 

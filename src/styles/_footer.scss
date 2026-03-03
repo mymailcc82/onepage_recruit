@@ -65,6 +65,9 @@
     linear-gradient(#efefef 1px, transparent 1px),
     linear-gradient(90deg, #efefef 1px, transparent 1px);
   background-size: 24px 24px;
+  @include media(mobile) {
+    padding: 50px 0px 120px;
+  }
 
   .footer-wrap {
     display: flex;

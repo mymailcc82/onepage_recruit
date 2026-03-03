@@ -20,6 +20,11 @@ Template Name: エントリー完了
             <div class="com-btn-white com-btn-white-thanks max-w-[399px] mx-auto">
                 <a href="<?php echo home_url(); ?>/">トップページへ戻る<i></i></a>
             </div>
+            <?php //ショートコード[contact-form-7 id="9d7709b" title="お問い合わせ"]
+            //echo do_shortcode('[contact-form-7 id="9" title="お問い合わせ"]');
+            //echo do_shortcode('[mwform_formkey key="25" html_class="h-adr"]'); 
+            echo do_shortcode('[mwform_formkey key="29"]');
+            ?>
         </div>
 
 
