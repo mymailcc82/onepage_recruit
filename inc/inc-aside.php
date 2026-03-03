@@ -23,7 +23,7 @@
                 </a>
             </div>
             <div class="aside-wrap-col-full">
-                <a href="<?php echo home_url(); ?>/entry/">
+                <a href="<?php echo home_url(); ?>/recruit/">
                     <span>ENTRY</span>
                     <h3>募集要項 / エントリー</h3>
                     <i></i>

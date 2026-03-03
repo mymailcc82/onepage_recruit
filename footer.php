@@ -25,7 +25,11 @@
         <div class="footer-wrap">
             <div class="footer-wrap-left">
                 <h2 class="max-w-[256px] mb-2"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/com/logo.png" alt="ロゴ"></h2>
-                <h3 class="mb-6 text-base font-bold color-main">-新卒採用 2026-</h3>
+                <?php
+                //年号取得
+                $year = date('Y');
+                ?>
+                <h3 class="mb-6 text-base font-bold color-main">-新卒採用 <?php echo $year; ?>-</h3>
                 <p class="text-sm leading-7 mb-6">
                     〒<?php echo esc_html(get_option('onepage_company_zipcode', '')); ?><br>
                     <?php echo esc_html(get_option('onepage_company_address', '')); ?><br>

@@ -65,8 +65,8 @@ $check_flg = get_field('check_flg');
 
                     <div class="main-btn mt-10">
                         <div class="aside-wrap-col-full">
-                            <a href="<?php echo home_url(); ?>/entry/">
-                                <span>ENTRY</span>
+                            <a href="<?php echo home_url(); ?>/contact/">
+                                <span>APPLY</span>
                                 <h3>インターンに申し込む！</h3>
                                 <i></i>
                             </a>

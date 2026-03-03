@@ -12,18 +12,30 @@ $job_group = get_field('job_group');
 <?php get_header(); ?>
 <main class="top">
 
-    <div class="top-visual left-0 top-0 w-full h-screen z-0">
+    <div class="top-visual left-0 top-15 w-full h-screen z-0">
         <div class="top-visual-yoko-top">
+            <ul>
+                <li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-slide-title.png" alt="Graduate Recruitment Graduate Recruitment"></li>
+                <li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-slide-title.png" alt="Graduate Recruitment Graduate Recruitment"></li>
+            </ul>
+            <?php /*
             <ul>
                 <li>Graduate Recruitment Graduate Recruitment</li>
                 <li>Graduate Recruitment Graduate Recruitment</li>
             </ul>
+            */ ?>
         </div>
         <div class="top-visual-yoko-bottom">
             <ul>
+                <li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-slide-title.png" alt="Graduate Recruitment Graduate Recruitment"></li>
+                <li><img src="<?php echo get_template_directory_uri(); ?>/assets/img/top/top-slide-title.png" alt="Graduate Recruitment Graduate Recruitment"></li>
+            </ul>
+            <?php /*
+            <ul>
                 <li>Graduate Recruitment Graduate Recruitment</li>
                 <li>Graduate Recruitment Graduate Recruitment</li>
             </ul>
+            */ ?>
         </div>
 
         <div class="top-visual-img">

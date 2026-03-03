@@ -47,7 +47,7 @@
                     <a class="btn-intern px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/intern/">INTERN</a>
                 </li>
                 <li>
-                    <a class="btn-entry px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/entry/">ENTRY</a>
+                    <a class="btn-entry px-10 py-2 rounded font-bold text-xl" href="<?php echo home_url(); ?>/recruit/">ENTRY</a>
                 </li>
             </ol>
             <button class="header-button">
@@ -71,11 +71,15 @@
                 </li>
             </ol>
             <ul class="">
+                <li><a href="<?php echo home_url(); ?>/">トップ</a></li>
                 <li><a href="<?php echo home_url(); ?>/company/">どんな会社？</a></li>
                 <li><a href="<?php echo home_url(); ?>/job/">仕事紹介</a></li>
                 <li><a href="<?php echo home_url(); ?>/interview/">先輩インタビュー</a></li>
-                <li><a href="<?php echo home_url(); ?>/archive/">お知らせ・ブログ</a></li>
                 <li><a href="<?php echo home_url(); ?>/guardian/">保護者の方へ</a></li>
+                <li><a href="<?php echo home_url(); ?>/archive/">お知らせ・ブログ</a></li>
+                <li><a href="<?php echo home_url(); ?>/intern/">インターン情報</a></li>
+                <li><a href="<?php echo home_url(); ?>/entry/">募集要項</a></li>
+                <li><a href="<?php echo home_url(); ?>/contact/">お問い合わせ</a></li>
             </ul>
         </div>
 
