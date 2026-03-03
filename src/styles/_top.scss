@@ -196,8 +196,8 @@
     overflow: hidden;
 
     @include media(sm) {
-      z-index: 2;
-      padding-bottom: 50px;
+      //z-index: 2;
+      padding-bottom: 150px;
     }
 
     @include media(mobile) {
@@ -218,7 +218,7 @@
       position: absolute;
       left: 0px;
       top: 0px;
-      z-index: -1;
+      z-index: 1;
       clip-path: polygon(0% 20%, 100% 0%, 100% 100%, 0% 100%);
 
       @include media(middle) {
@@ -231,6 +231,11 @@
     }
 
     .sec01-content {
+      position: relative;
+      z-index: 3;
+      @include media(sm) {
+        min-height: 750px;
+      }
       .sec01-title {
         h2 {
           display: inline-flex;
@@ -303,12 +308,14 @@
       position: absolute;
       width: 100%;
       overflow: hidden;
-      z-index: -1;
+      z-index: 21;
       right: 0px;
       top: 0px;
       height: 100%;
+      //リンク無効
+      pointer-events: none;
       @include media(xl) {
-        min-height: 1400px;
+        min-height: 1550px;
       }
 
       @include media(mobile) {
@@ -381,6 +388,7 @@
 
     @include media(sm) {
       padding-top: 95px;
+      margin-top: -100px;
     }
 
     @include media(middle) {

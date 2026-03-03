@@ -9,6 +9,10 @@
     </div>
 <?php elseif (is_page("entry") || is_page("intern") || is_page("contact") || is_page("confirm") || is_page("thanks")): ?>
 <?php else: ?>
+    <?php
+    $intern_page = get_page_by_path('intern');
+    if ($intern_page && get_field('check_flg', $intern_page->ID)):
+    ?>
     <div class="footer-fixed">
         <a href="<?php echo home_url(); ?>/intern/">
             <p>
@@ -17,6 +21,7 @@
             </p>
         </a>
     </div>
+    <?php endif; ?>
 <?php endif; ?>
 
 

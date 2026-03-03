@@ -11,7 +11,7 @@
                 URLが間違っているか、<br>すでに削除されたページの<br class="hidden-sm">可能性がございます。
             </p>
             <div class="com-btn-white max-w-[399px] mx-auto">
-                <a href="<?php echo home_url(); ?>/">トップページへ戻る<i></i></a>
+                <a href="<?php echo home_url(); ?>/">トップページへ戻る<i class="small"></i></a>
             </div>
 
         </div>

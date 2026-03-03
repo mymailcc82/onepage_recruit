@@ -645,7 +645,10 @@
         }
         .dl-birth {
           width: 100%;
-          max-width: 400px;
+
+          dd {
+            max-width: 400px;
+          }
           .col {
             display: flex;
             //justify-content: space-between;

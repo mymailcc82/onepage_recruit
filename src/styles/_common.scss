@@ -186,7 +186,7 @@
 
   &.com-btn-white-thanks {
     a {
-      i{
+      i {
         width: 24px;
         height: 24px;
         background-size: 10px;
@@ -225,6 +225,11 @@
       margin: 0px;
       bottom: 50%;
       transform: translateY(50%);
+      &.small {
+        width: 24px;
+        height: 24px;
+        background-size: 12px;
+      }
     }
   }
 }
@@ -493,7 +498,7 @@
         }
       }
 
-      @include media(mobile){
+      @include media(mobile) {
         font-size: 25px;
       }
     }
